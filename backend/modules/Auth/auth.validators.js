@@ -13,4 +13,12 @@ const registerValidator = yup.object().shape({
 		.max(48, "رمز عبور حداکثر میتواند 48 کارکتر باشد"),
 });
 
-module.exports = { registerValidator };
+const loginValidator = yup.object().shape({
+	email: yup.string().required("ایمیل اجباریست").email("ایمیل نا معتبر است"),
+	password: yup
+		.string()
+		.min(8, "رمز عبور حداقل باید 8 کارکتر باشد")
+		.max(48, "رمز عبور حداکثر میتواند 48 کارکتر باشد"),
+});
+
+module.exports = { registerValidator, loginValidator };

@@ -68,3 +68,16 @@ exports.setRefreshTokenCookie = (res, token) => {
 		secure: true,
 	});
 };
+
+exports.findUserByEmail = async (email) => {
+	const user = await UserModel.findOne({ email });
+	if (!user) throw { status: 400, message: "ایمیل یا پسورد اشتباه است" };
+	return user;
+};
+
+exports.compareWithHashedPassword = async (user, password) => {
+	const passwordValidation = bcrypt.compareSync(password, user.password);
+	if (!passwordValidation)
+		throw { status: 400, message: "ایمیل یا پسورد اشتباه است" };
+	return;
+};

@@ -1,4 +1,4 @@
-const { registerValidator } = require("./auth.validators");
+const { registerValidator, loginValidator } = require("./auth.validators");
 const authService = require("./auth.service");
 const { successResponse } = require("../../helpers/responses");
 
@@ -35,8 +35,24 @@ exports.register = async (req, res, next) => {
 	}
 };
 
-exports.login = (req, res, next) => {
+exports.login = async (req, res, next) => {
 	try {
+		const { email, password } = req.body;
+		await loginValidator.validate(
+			{ email, password },
+			{ abortEarly: false }
+		);
+
+		const user = await authService.findUserByEmail(email);
+		await authService.compareWithHashedPassword(user, password);
+
+		const [accessToken, refreshToken] = await Promise.all([
+			authService.createAccessToken(user._id),
+			authService.createRefreshToken(user._id),
+		]);
+
+		authService.setRefreshTokenCookie(res, refreshToken);
+		return successResponse(res, 201, { accessToken });
 	} catch (err) {
 		next(err);
 	}
