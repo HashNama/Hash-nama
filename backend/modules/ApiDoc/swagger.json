@@ -1,0 +1,50 @@
+{
+	"openapi": "3.1.0",
+	"info": {
+		"title": "HashNama",
+		"version": "1.0.0"
+	},
+	"components": {
+		"securitySchemes": {
+			"bearerAuth": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
+			}
+		}
+	},
+	"tags": [
+		{
+			"name": "Auth"
+		}
+	],
+	"paths": {
+		"/api/auth/register": {
+			"post": {
+				"tags": ["Auth"],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"username": "pourya",
+									"email": "pourya@gmail.com",
+									"password": "12345678"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "successfully registered"
+					},
+					"400": {
+						"description": "request body data is invalid"
+					}
+				}
+			}
+		}
+	}
+}

@@ -5,6 +5,8 @@ const { errorHandler } = require("./middlewares/errorHandler");
 
 const authRoutes = require("./modules/Auth/auth.routes");
 
+const apiDocRoutes = require("./modules/ApiDoc/swagger.routes");
+
 const app = express();
 
 //* BodyParser
@@ -18,6 +20,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //* Routes
 app.use("/api/auth/", authRoutes);
+
+app.use("/api-doc", apiDocRoutes);
 //* Error
 app.use((req, res) => {
 	return res.status(404).json({ msg: "Not Found Path" });
