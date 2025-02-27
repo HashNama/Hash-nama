@@ -3,6 +3,8 @@ const cors = require("cors");
 const path = require("path");
 const { errorHandler } = require("./middlewares/errorHandler");
 
+const authRoutes = require("./modules/Auth/auth.routes");
+
 const app = express();
 
 //* BodyParser
@@ -15,7 +17,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 
 //* Routes
-
+app.use("/api/auth/", authRoutes);
 //* Error
 app.use((req, res) => {
 	return res.status(404).json({ msg: "Not Found Path" });
