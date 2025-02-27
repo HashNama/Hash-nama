@@ -41,7 +41,33 @@
 						"description": "successfully registered"
 					},
 					"400": {
-						"description": "request body data is invalid"
+						"description": "invalid request body data"
+					}
+				}
+			}
+		},
+		"/api/auth/login": {
+			"get": {
+				"tags": ["Auth"],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"email": "pourya@gmail.com",
+									"password": "12345678"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "successfully logged in"
+					},
+					"400": {
+						"description": "invalid request body data"
 					}
 				}
 			}

@@ -52,7 +52,7 @@ exports.login = async (req, res, next) => {
 		]);
 
 		authService.setRefreshTokenCookie(res, refreshToken);
-		return successResponse(res, 201, { accessToken });
+		return successResponse(res, 200, { accessToken });
 	} catch (err) {
 		next(err);
 	}
