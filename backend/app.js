@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const { errorHandler } = require("./middlewares/errorHandler");
+const cookieParser = require("cookie-parser");
 
 const authRoutes = require("./modules/Auth/auth.routes");
 
@@ -12,6 +13,10 @@ const app = express();
 //* BodyParser
 app.use(express.json({ limit: "30mb" }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
+
+//* Cookie Parser
+app.use(cookieParser());
+
 //* CORS Policy
 app.use(cors());
 

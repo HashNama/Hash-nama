@@ -1,6 +1,6 @@
 const { registerValidator, loginValidator } = require("./auth.validators");
 const authService = require("./auth.service");
-const { successResponse } = require("../../helpers/responses");
+const { successResponse, errorResponse } = require("../../helpers/responses");
 
 exports.register = async (req, res, next) => {
 	try {
@@ -62,13 +62,10 @@ exports.refreshToken = async (req, res, next) => {
 	try {
 		const { refreshToken } = req.cookies;
 		if (!refreshToken) {
-			return errorResponse(res, 401, "Unauthorized");
+			return errorResponse(res, 401, "رفرش توکن موجود نیست");
 		}
 
 		const decoded = await authService.verifyRefreshToken(refreshToken);
-		if (decoded.error) {
-			return res.redirect(decoded.redirectTo);
-		}
 
 		const accessToken = await authService.createAccessToken(decoded.userId);
 		return successResponse(res, 200, { accessToken });

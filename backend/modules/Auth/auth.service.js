@@ -88,7 +88,7 @@ exports.verifyRefreshToken = async (refreshToken) => {
 		configs.auth.refreshTokenSecretKey,
 		(err, decoded) => {
 			if (err) {
-				return { error: true, redirectTo: "/login" };
+				throw { status: 401, message: "رفرش توکن معتبر نیست" };
 			}
 			return decoded;
 		}
