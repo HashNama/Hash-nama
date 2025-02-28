@@ -57,3 +57,22 @@ exports.login = async (req, res, next) => {
 		next(err);
 	}
 };
+
+exports.refreshToken = async (req, res, next) => {
+	try {
+		const { refreshToken } = req.cookies;
+		if (!refreshToken) {
+			return errorResponse(res, 401, "Unauthorized");
+		}
+
+		const decoded = await authService.verifyRefreshToken(refreshToken);
+		if (decoded.error) {
+			return res.redirect(decoded.redirectTo);
+		}
+
+		const accessToken = await authService.createAccessToken(decoded.userId);
+		return successResponse(res, 200, { accessToken });
+	} catch (err) {
+		next(err);
+	}
+};

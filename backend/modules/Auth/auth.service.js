@@ -81,3 +81,17 @@ exports.compareWithHashedPassword = async (user, password) => {
 		throw { status: 400, message: "ایمیل یا پسورد اشتباه است" };
 	return;
 };
+
+exports.verifyRefreshToken = async (refreshToken) => {
+	const decoded = jwt.verify(
+		refreshToken,
+		configs.auth.refreshTokenSecretKey,
+		(err, decoded) => {
+			if (err) {
+				return { error: true, redirectTo: "/login" };
+			}
+			return decoded;
+		}
+	);
+	return decoded;
+};
