@@ -3,6 +3,17 @@ const UserModel = require("./../../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const configs = require("./../../configs");
+const { isValidObjectId } = require("mongoose");
+
+exports.findUserById = async (userId) => {
+	if (!isValidObjectId(userId))
+		throw { status: 400, message: "شناسه کاربر معتبر نیست" };
+
+	const user = await UserModel.findById(userId);
+	if (!user) throw { status: 404, message: "کاربر یافت نشد" };
+	console.log(user);
+	return user;
+};
 
 exports.usernameExists = async (username) => {
 	const user = await UserModel.findOne({ username });

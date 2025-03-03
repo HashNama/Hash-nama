@@ -5,6 +5,7 @@ const { errorHandler } = require("./middlewares/errorHandler");
 const cookieParser = require("cookie-parser");
 
 const authRoutes = require("./modules/Auth/auth.routes");
+const coinRoutes = require("./modules/Coin/coin.routes");
 
 const apiDocRoutes = require("./modules/ApiDoc/swagger.routes");
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //* Routes
 app.use("/api/auth/", authRoutes);
+app.use("/api/coin/", coinRoutes);
 
 app.use("/api-doc", apiDocRoutes);
 //* Error
