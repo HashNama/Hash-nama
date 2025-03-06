@@ -1,5 +1,6 @@
 const { errorResponse, successResponse } = require("../../helpers/responses");
 const coinService = require("./coin.service");
+const fs = require("fs");
 const { addCoinValidator } = require("./coin.validators");
 
 exports.addCoin = async (req, res, next) => {
@@ -38,6 +39,16 @@ exports.getCoins = async (req, res, next) => {
 
 exports.deleteCoin = async (req, res, next) => {
 	try {
+		const { id } = req.params;
+		const coin = await coinService.deleteCoin(id);
+
+		//* delete image
+		fs.unlinkSync(`./backend/public${coin.image}`);
+
+		return successResponse(res, 200, {
+			message: "کوین با موفقیت حذف شد",
+			coin,
+		});
 	} catch (err) {
 		next(err);
 	}

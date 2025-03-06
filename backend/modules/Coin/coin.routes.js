@@ -14,7 +14,8 @@ router
 		uploader(uploadPath, fileFormat).single("image"),
 		coinController.addCoin
 	)
-	.get(coinController.getCoins)
-	.delete(coinController.deleteCoin);
+	.get(coinController.getCoins);
+
+router.route("/:id").delete(roleGaurd("ADMIN"), coinController.deleteCoin);
 
 module.exports = router;
