@@ -24,6 +24,9 @@ app.use(cors());
 //* Static Folder
 app.use(express.static(path.join(__dirname, "public")));
 
+//* Static Folder
+app.use(express.static(path.join(__dirname, "public")));
+
 //* Routes
 app.use("/api/auth/", authRoutes);
 app.use("/api/coin/", coinRoutes);

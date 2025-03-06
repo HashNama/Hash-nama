@@ -7,13 +7,11 @@ module.exports = (role) => {
 	return (req, res, next) => {
 		try {
 			const token = req.headers.authorization.split(" ")[1];
-			console.log(token);
 
 			const decodedToken = jwt.verify(
 				token,
-				"mdJHga12g13gfhjy1yg3adD12Gde45"
+				configs.auth.accessTokenSecretKey
 			);
-			console.log(decodedToken);
 			const userId = decodedToken.userId;
 
 			authService

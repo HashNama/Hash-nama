@@ -11,7 +11,7 @@ exports.findUserById = async (userId) => {
 
 	const user = await UserModel.findById(userId);
 	if (!user) throw { status: 404, message: "کاربر یافت نشد" };
-	console.log(user);
+
 	return user;
 };
 

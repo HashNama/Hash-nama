@@ -3,7 +3,7 @@ const { errorResponse } = require("../helpers/responses");
 exports.errorHandler = (err, req, res, next) => {
 	if (err.name === "ValidationError") {
 		let errors = [];
-
+		console.log(err);
 		err.inner.forEach((e) => {
 			errors.push({
 				field: e.path,
