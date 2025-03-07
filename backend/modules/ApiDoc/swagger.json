@@ -118,6 +118,33 @@
 					}
 				}
 			}
+		},
+		"/api/coin/:id": {
+			"delete": {
+				"tags": ["Coin"],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "66d987654321098765432109"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "کوین با موفقیت حذف شد"
+					},
+					"400": {
+						"description": "آیدی کوین نامعتبر است"
+					},
+					"404": {
+						"description": "کوین پیدا نشد"
+					}
+				}
+			}
 		}
 	}
 }
