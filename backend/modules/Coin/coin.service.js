@@ -15,3 +15,16 @@ exports.deleteCoin = async (id) => {
 	if (!coin) throw { status: 404, message: "کوین پیدا نشد" };
 	return coin;
 };
+
+exports.getCoins = async (page, limit) => {
+	const coins = await CoinModel.find()
+		.skip((page - 1) * limit)
+		.limit(limit);
+	const total = await CoinModel.countDocuments();
+	const pagination = {
+		total,
+		page,
+		limit,
+	};
+	return { coins, pagination };
+};

@@ -5,10 +5,12 @@ const coinSchema = new mongoose.Schema(
 		name: {
 			type: String,
 			required: true,
+			lowercase: true,
 		},
 		symbol: {
 			type: String,
 			required: true,
+			uppercase: true,
 		},
 		image: {
 			type: String,

@@ -32,6 +32,25 @@ exports.addCoin = async (req, res, next) => {
 
 exports.getCoins = async (req, res, next) => {
 	try {
+		const { page = 1, limit = 2 } = req.query;
+
+		//* validate page and limit
+		if (isNaN(page) || isNaN(limit)) {
+			return errorResponse(
+				res,
+				400,
+				"page و limit باید مقدار عددی داشته باشند"
+			);
+		} else if (page <= 0 || limit <= 0) {
+			return errorResponse(
+				res,
+				400,
+				"page و limit باید مقدار بزرگتر از 0 داشته باشند"
+			);
+		}
+
+		const coins = await coinService.getCoins(+page, +limit);
+		return successResponse(res, 200, coins);
 	} catch (err) {
 		next(err);
 	}

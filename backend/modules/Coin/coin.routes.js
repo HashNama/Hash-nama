@@ -13,8 +13,9 @@ router
 		roleGaurd("ADMIN"),
 		uploader(uploadPath, fileFormat).single("image"),
 		coinController.addCoin
-	)
-	.get(coinController.getCoins);
+	);
+
+router.route("/getAll").get(coinController.getCoins);
 
 router.route("/:id").delete(roleGaurd("ADMIN"), coinController.deleteCoin);
 
