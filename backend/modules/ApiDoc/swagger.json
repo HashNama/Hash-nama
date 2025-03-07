@@ -145,6 +145,39 @@
 					}
 				}
 			}
+		},
+		"/api/coin/getAll": {
+			"get": {
+				"tags": ["Coin"],
+				"parameters": [
+					{
+						"name": "page",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "number",
+							"example": 1
+						}
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "number",
+							"example": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "کوین ها با موفقیت دریافت شدند"
+					},
+					"400": {
+						"description": "page و limit باید مقدار عددی داشته باشند"
+					}
+				}
+			}
 		}
 	}
 }

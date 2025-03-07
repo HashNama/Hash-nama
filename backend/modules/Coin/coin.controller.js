@@ -32,7 +32,7 @@ exports.addCoin = async (req, res, next) => {
 
 exports.getCoins = async (req, res, next) => {
 	try {
-		const { page = 1, limit = 2 } = req.query;
+		const { page = 1, limit = 25 } = req.query;
 
 		//* validate page and limit
 		if (isNaN(page) || isNaN(limit)) {
