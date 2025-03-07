@@ -23,7 +23,7 @@ exports.addCoin = async (req, res, next) => {
 			`/image/coins/${image.filename}`
 		);
 
-		return successResponse(res, 200, "کوین با موفقیت اضافه شد", coin);
+		return successResponse(res, 201, "کوین با موفقیت اضافه شد", coin);
 	} catch (err) {
 		if (req.file) fs.unlinkSync(req.file.path);
 		next(err);

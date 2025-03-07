@@ -16,6 +16,9 @@
 	"tags": [
 		{
 			"name": "Auth"
+		},
+		{
+			"name": "Coin"
 		}
 	],
 	"paths": {
@@ -81,6 +84,37 @@
 						"example": {
 							"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 						}
+					}
+				}
+			}
+		},
+		"/api/coin": {
+			"post": {
+				"tags": ["Coin"],
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"image": "image.jpg",
+									"symbol": "BTC",
+									"name": "bitoin"
+								},
+								"required": ["image", "symbol", "name"]
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "کوین با موفقیت اضافه شد"
+					},
+					"400": {
+						"description": "invalid request body data"
+					},
+					"500": {
+						"description": "internal server error"
 					}
 				}
 			}
