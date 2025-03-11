@@ -18,6 +18,6 @@ module.exports = async (req, res, next) => {
 		req.user = user;
 		next();
 	} catch (error) {
-		errorResponse(res, error);
+		errorResponse(res, 401, error.message);
 	}
 };

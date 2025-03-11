@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 
 const watchListSchema = new mongoose.Schema(
 	{
-		userId: {
+		user: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "User",
 			required: true,
 		},
-		coinId: {
+		coin: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Coin",
 			required: true,
