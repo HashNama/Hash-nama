@@ -34,3 +34,16 @@ exports.getWatchList = async (userId) => {
 
 	return watchList;
 };
+
+exports.removeCoinFromWatchList = async (userId, coinId) => {
+	const removedData = await WatchListModel.findOneAndDelete({
+		user: userId,
+		coin: coinId,
+	})
+		.populate("coin", "name")
+		.populate("user", "username");
+
+	if (!removedData) throw { status: 500, message: "Internal Server Error" };
+
+	return removedData;
+};
