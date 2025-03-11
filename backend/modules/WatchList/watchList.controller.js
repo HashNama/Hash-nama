@@ -29,6 +29,11 @@ exports.addToWatchList = async (req, res, next) => {
 
 exports.getWatchList = async (req, res, next) => {
 	try {
+		const user = req.user;
+
+		const watchList = await watchListService.getWatchList(user._id);
+
+		return successResponse(res, 200, { watchList });
 	} catch (err) {
 		next(err);
 	}
