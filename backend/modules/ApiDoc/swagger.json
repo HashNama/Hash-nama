@@ -19,6 +19,9 @@
 		},
 		{
 			"name": "Coin"
+		},
+		{
+			"name": "WatchList"
 		}
 	],
 	"paths": {
@@ -175,6 +178,77 @@
 					},
 					"400": {
 						"description": "page و limit باید مقدار عددی داشته باشند"
+					}
+				}
+			}
+		},
+		"/api/watchlist": {
+			"get": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["WatchList"],
+				"responses": {
+					"200": {
+						"description": "successfully fetched watchlist"
+					}
+				}
+			}
+		},
+		"/api/watchlist/:id": {
+			"delete": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["WatchList"],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "66d987654321098765432109"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successfully deleted watchlist"
+					}
+				}
+			},
+			"post": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "66d987654321098765432109"
+						}
+					}
+				],
+				"tags": ["WatchList"],
+				"responses": {
+					"201": {
+						"description": "کوین با موفقیت به واچلیست اضافه شد"
+					},
+					"400": {
+						"description": "آیدی کوین نامعتبر است"
+					},
+					"404": {
+						"description": "کوین پیدا نشد"
 					}
 				}
 			}
