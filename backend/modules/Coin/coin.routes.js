@@ -16,7 +16,7 @@ router
 	);
 
 router.route("/getAll").get(coinController.getCoins);
-
+//! Error
 router.route("/:id").delete(roleGaurd("ADMIN"), coinController.deleteCoin);
 
 module.exports = router;
