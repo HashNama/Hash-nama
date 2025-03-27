@@ -21,6 +21,9 @@ module.exports = {
 	redis: {
 		uri: process.env.REDIS_URI,
 	},
+	apiKeys: {
+		moralis: process.env.MORALIS_API_KEY,
+	},
 
 	domain: process.env.DOMAIN,
 

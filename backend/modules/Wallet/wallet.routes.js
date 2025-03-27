@@ -4,6 +4,9 @@ const tokenAuth = require("./../../middlewares/tokenAuth");
 
 const router = express.Router();
 
-router.route("/").post(tokenAuth, controller.addWallet);
+router
+	.route("/")
+	.post(tokenAuth, controller.addWallet)
+	.get(tokenAuth, controller.getWalletAssets);
 
 module.exports = router;
