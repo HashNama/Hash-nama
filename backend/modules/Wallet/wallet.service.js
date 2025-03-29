@@ -1,9 +1,9 @@
 const WalletModel = require("./../../models/Wallet");
 
-exports.isWalletExistsInUserAccount = async (userId, wallet) => {
-	const isExists = await WalletModel.findOne({ userId, wallet });
+exports.isWalletExistsInUserAccount = async (userId) => {
+	const isExists = await WalletModel.findOne({ userId });
 	if (isExists) {
-		throw { status: 400, message: "آدرس در حساب شما وجود دارد" };
+		throw { status: 400, message: "یک آدرس توسط شما ثبت شده است" };
 	}
 };
 exports.addWallet = async (userId, wallet) => {
@@ -14,4 +14,12 @@ exports.addWallet = async (userId, wallet) => {
 	}
 
 	return true;
+};
+exports.getWalletAddress = async (userId) => {
+	const address = await WalletModel.findOne({ userId });
+
+	if (!address) {
+		throw { status: 404, message: "not found wallet for this user" };
+	}
+	return address;
 };

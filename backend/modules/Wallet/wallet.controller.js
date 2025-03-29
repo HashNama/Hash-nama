@@ -4,7 +4,6 @@ const ethers = require("ethers");
 const axios = require("axios");
 const config = require("./../../configs");
 const { formatNumber } = require("./../../utils/formatNumber");
-const { formatNumber } = require("../../utils/formatNumber");
 
 exports.addWallet = async (req, res, next) => {
 	try {
@@ -16,7 +15,7 @@ exports.addWallet = async (req, res, next) => {
 			return errorResponse(res, 400, "آدرس وارد شده معتبر نمیباشد");
 		}
 		await Promise.all([
-			walletService.isWalletExistsInUserAccount(user._id, address),
+			walletService.isWalletExistsInUserAccount(user._id),
 			walletService.addWallet(user._id, address),
 		]);
 
@@ -29,7 +28,9 @@ exports.addWallet = async (req, res, next) => {
 exports.getWalletAssets = async (req, res, next) => {
 	try {
 		const chains = ["eth", "base", "bsc", "polygon"];
-		const { address } = req.body;
+		const { wallet: address } = await walletService.getWalletAddress(
+			req.user._id
+		);
 
 		//* Get Assets
 		let portfolio = {};
