@@ -22,6 +22,9 @@
 		},
 		{
 			"name": "WatchList"
+		},
+		{
+			"name": "Wallet"
 		}
 	],
 	"paths": {
@@ -249,6 +252,37 @@
 					},
 					"404": {
 						"description": "کوین پیدا نشد"
+					}
+				}
+			}
+		},
+		"/api/wallet/": {
+			"post": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Wallet"],
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"address": "0x0ab94c79f986bbf77df888ac25e348cc3d7c9af9"
+								},
+								"required": ["address"]
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "ولت با موفقیت اضافه شد"
+					},
+					"400": {
+						"description": "یک آدرس توسط شما ثبت شده است"
 					}
 				}
 			}
