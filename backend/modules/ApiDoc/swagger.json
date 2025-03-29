@@ -285,6 +285,19 @@
 						"description": "یک آدرس توسط شما ثبت شده است"
 					}
 				}
+			},
+			"get": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Wallet"],
+				"responses": {
+					"200": {
+						"description": "success"
+					}
+				}
 			}
 		}
 	}
