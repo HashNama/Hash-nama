@@ -7,6 +7,7 @@ const router = express.Router();
 router
 	.route("/")
 	.post(tokenAuth, controller.addWallet)
-	.get(tokenAuth, controller.getWalletAssets);
+	.get(tokenAuth, controller.getWalletAssets)
+	.delete(tokenAuth, controller.deleteWallet);
 
 module.exports = router;

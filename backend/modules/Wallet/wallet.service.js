@@ -19,7 +19,15 @@ exports.getWalletAddress = async (userId) => {
 	const address = await WalletModel.findOne({ userId });
 
 	if (!address) {
-		throw { status: 404, message: "not found wallet for this user" };
+		throw { status: 404, message: "هیچ ولتی برای این کاربر وجود ندارد" };
 	}
 	return address;
+};
+
+exports.findAndDeleteWallet = async (userId) => {
+	const deletedDocument = await WalletModel.findOneAndDelete({ userId });
+	if (!deletedDocument) {
+		throw { status: 404, message: "هیچ ولتی برای این کاربر وجود ندارد" };
+	}
+	return deletedDocument.wallet;
 };

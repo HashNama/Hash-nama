@@ -100,3 +100,18 @@ exports.getWalletAssets = async (req, res, next) => {
 		next(err);
 	}
 };
+
+exports.deleteWallet = async (req, res, next) => {
+	try {
+		const user = req.user;
+
+		const deletedWallet = await walletService.findAndDeleteWallet(user._id);
+
+		return successResponse(res, 200, {
+			message: "ولت با موفقیت از حساب کاربر حذف شد",
+			deletedWallet,
+		});
+	} catch (err) {
+		next(err);
+	}
+};
