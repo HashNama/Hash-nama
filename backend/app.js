@@ -29,6 +29,9 @@ app.use(express.static(path.join(__dirname, "public")));
 //* Static Folder
 app.use(express.static(path.join(__dirname, "public")));
 
+//* Cron Job
+require("./modules/jobs/marketData.job");
+
 //* Routes
 app.use("/api/auth/", authRoutes);
 app.use("/api/coin/", coinRoutes);
