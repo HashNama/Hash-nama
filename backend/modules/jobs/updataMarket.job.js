@@ -13,7 +13,6 @@ const marketService = require("../Market/market.service");
 cron.schedule("*/30 * * * * *", async () => {
 	try {
 		await marketService.syncTop100Coins();
-		console.log("Market Updated Successfully");
 	} catch (err) {
 		console.error("Error:", err.message);
 	}

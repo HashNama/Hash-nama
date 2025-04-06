@@ -55,3 +55,11 @@ exports.syncTop100Coins = async () => {
 		throw { status: 500, message: "Something Went Wrong!!!" };
 	}
 };
+
+exports.getMarketData = async () => {
+	const market = await MarketDataModel.find({}).lean();
+	if (!market) {
+		throw { status: 500, message: "Something Went Wrong" };
+	}
+	return market;
+};
