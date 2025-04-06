@@ -5,7 +5,6 @@ const { errorHandler } = require("./middlewares/errorHandler");
 const cookieParser = require("cookie-parser");
 
 const authRoutes = require("./modules/Auth/auth.routes");
-const coinRoutes = require("./modules/Coin/coin.routes");
 const watchListRoutes = require("./modules/WatchList/watchList.routes");
 const walletRoutes = require("./modules/Wallet/wallet.routes");
 const marketRoutes = require("./modules/Market/market.routes");
@@ -35,7 +34,6 @@ require("./modules/jobs/updataMarket.job");
 
 //* Routes
 app.use("/api/auth/", authRoutes);
-app.use("/api/coin/", coinRoutes);
 app.use("/api/watchlist/", watchListRoutes);
 app.use("/api/wallet", walletRoutes);
 app.use("/api/market", marketRoutes);
