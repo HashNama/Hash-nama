@@ -2,10 +2,19 @@ const mongoose = require("mongoose");
 
 const schema = mongoose.Schema(
 	{
-		coinId: {
-			type: mongoose.Schema.Types.ObjectId,
+		name: {
+			type: String,
 			required: true,
-			ref: "Coin",
+		},
+		symbol: {
+			type: String,
+			required: true,
+			uppercase: true,
+			trim: true,
+		},
+		image: {
+			type: String,
+			required: true,
 		},
 		price: {
 			type: Number,
@@ -16,7 +25,12 @@ const schema = mongoose.Schema(
 			required: false,
 			default: null,
 		},
-		volume: {
+		marketCapRank: {
+			type: Number,
+			required: false,
+			default: null,
+		},
+		volume24h: {
 			type: Number,
 			required: false,
 			default: null,
@@ -26,8 +40,23 @@ const schema = mongoose.Schema(
 			required: false,
 			default: null,
 		},
+		priceChange24h: {
+			type: Number,
+			required: false,
+			default: null,
+		},
+		priceChangePercentage24h: {
+			type: Number,
+			required: false,
+			default: null,
+		},
+		ath: {
+			type: Number,
+			required: false,
+			default: null,
+		},
 		updatedAt: {
-			type: Date.now(),
+			type: Date,
 		},
 	},
 	{
