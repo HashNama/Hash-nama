@@ -17,11 +17,11 @@ const schema = mongoose.Schema(
 			required: true,
 		},
 		price: {
-			type: Number,
+			type: String,
 			required: true,
 		},
 		marketCap: {
-			type: Number,
+			type: String,
 			required: false,
 			default: null,
 		},
@@ -31,27 +31,27 @@ const schema = mongoose.Schema(
 			default: null,
 		},
 		volume24h: {
-			type: Number,
+			type: String,
 			required: false,
 			default: null,
 		},
 		circulatingSupply: {
-			type: Number,
+			type: String,
 			required: false,
 			default: null,
 		},
 		priceChange24h: {
-			type: Number,
+			type: String,
 			required: false,
 			default: null,
 		},
 		priceChangePercentage24h: {
-			type: Number,
+			type: String,
 			required: false,
 			default: null,
 		},
 		ath: {
-			type: Number,
+			type: String,
 			required: false,
 			default: null,
 		},

@@ -1,5 +1,6 @@
 const MarketDataModel = require("../../models/MarketData");
 const axios = require("axios");
+const { formatNumber } = require("./../../utils/formatNumber");
 
 const normalizeSymbol = (symbol) => symbol.trim().toUpperCase();
 
@@ -19,6 +20,7 @@ exports.syncTop100Coins = async () => {
 
 		const updates = data.map((coin) => {
 			const normalizedSymbol = normalizeSymbol(coin.symbol);
+
 			return {
 				updateOne: {
 					filter: { symbol: normalizedSymbol, name: coin.name },
@@ -27,15 +29,24 @@ exports.syncTop100Coins = async () => {
 							name: coin.name,
 							symbol: normalizedSymbol,
 							image: coin.image,
-							price: coin.current_price,
-							marketCap: coin.market_cap,
+							price: formatNumber(coin.current_price, "currency"),
+							marketCap: formatNumber(coin.market_cap),
 							marketCapRank: coin.market_cap_rank,
-							volume24h: coin.total_volume,
-							circulatingSupply: coin.circulating_supply,
-							priceChange24h: coin.price_change_24h,
-							priceChangePercentage24h:
-								coin.price_change_percentage_24h,
-							ath: coin.ath,
+							volume24h: formatNumber(
+								coin.total_volume,
+								"currency"
+							),
+							circulatingSupply: formatNumber(
+								coin.circulating_supply
+							),
+							priceChange24h: formatNumber(
+								coin.price_change_24h,
+								"currency"
+							),
+							priceChangePercentage24h: formatNumber(
+								coin.price_change_percentage_24h
+							),
+							ath: formatNumber(coin.ath, "currency"),
 							updatedAt: new Date(),
 						},
 					},

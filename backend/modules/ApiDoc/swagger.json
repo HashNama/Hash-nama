@@ -18,7 +18,7 @@
 			"name": "Auth"
 		},
 		{
-			"name": "Coin"
+			"name": "Market"
 		},
 		{
 			"name": "WatchList"
@@ -202,6 +202,16 @@
 					}
 				],
 				"tags": ["Wallet"],
+				"responses": {
+					"200": {
+						"description": "success"
+					}
+				}
+			}
+		},
+		"/api/market": {
+			"get": {
+				"tags": ["Market"],
 				"responses": {
 					"200": {
 						"description": "success"
