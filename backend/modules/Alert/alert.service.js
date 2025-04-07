@@ -1,3 +1,4 @@
+const { isValidObjectId } = require("mongoose");
 const AlertModel = require("./../../models/Alert");
 
 exports.addAlert = async (alertData) => {
@@ -16,4 +17,24 @@ exports.addAlert = async (alertData) => {
 		.populate("userId", "username email");
 
 	return alert;
+};
+
+exports.getAlert = async (alertId) => {
+	if (!isValidObjectId(alertId))
+		throw { status: 400, message: "آیدی نامعتبر است" };
+
+	const alert = await AlertModel.findById(alertId);
+	return alert;
+};
+
+exports.updateAlert = async (alertId, price, currentPositionToReachTarget) => {
+	const updatedAlert = await AlertModel.findByIdAndUpdate(
+		alertId,
+		{
+			$set: { price, currentPositionToReachTarget },
+		},
+		{ new: true }
+	);
+
+	return updatedAlert;
 };
