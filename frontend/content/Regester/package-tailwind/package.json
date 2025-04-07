@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.4.12"
+  },
+  "script": {
+    "build": "npx tailwindcss -i ./stayle/input.css -o ./stayle/regesterTailwind.css --watch"
+  }
+}

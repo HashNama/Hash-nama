@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="../stayle/login.css" />
+    <link rel="stylesheet" href="../stayle/loginTailwind.css" />
+  </head>
+  <body style="background-image: url(../pictuer/Background.png)">
+    <div
+      class="bg-[#12141C] rounded-[75px] w-[651px] h-[761px]"
+      id="count-login"
+    >
+      <div id="header-login">
+        <div>
+          <h1
+            style="font-weight: 500"
+            class="text-[48px] mt-[28px] text-white-gray tracking-[-4px]"
+          >
+            هش نما
+          </h1>
+        </div>
+        <div>
+          <button
+            class="rounded-[15px] w-[382px] h-[64px] bg-[#4667FB] flex justify-center"
+            id="btn-login-googel"
+          >
+            <img class="w-[25px]" src="../svg/G.svg" />
+          </button>
+        </div>
+
+        <div class="flex justify-center place-content-center gap-[7px]">
+          <span class="h-[0px] mt-[16px]"
+            ><img src="../svg/Line 2.svg" alt=""
+          /></span>
+          <h1 class="text-[20px] text-white-gray">یا</h1>
+          <span class="h-[0px] mt-[16px]"
+            ><img src="../svg/Line 2.svg" alt=""
+          /></span>
+        </div>
+      </div>
+
+      <div id="input-login">
+        <div>
+          <span class="icon-email"><img src="../svg/Email.svg" alt="" /></span>
+          <input
+            type="email"
+            autocomplete="new-password"
+            placeholder="ایمیل"
+            class="email-login"
+          />
+        </div>
+        <h1
+          id="falstypeinputemail"
+          class="text-red-400 text-[16px] text-center"
+        >
+          ایمیل نامعتبر است
+        </h1>
+
+        <div style="position: relative; bottom: 22px">
+          <img class="img-hade-password" src="../svg/hide.svg" alt="" />
+
+          <img class="password" src="../svg/password.svg" alt="" />
+
+          <input
+            type="password"
+            value=""
+            placeholder="رمز"
+            class="password-login"
+          />
+        </div>
+        <span
+          ><p
+            id="falstypeinputpassword"
+            class="text-red-400 text-[16px] text-center"
+          >
+            رمز شما باید ترکیبی از حروف و اعداد باشد
+          </p></span
+        >
+
+        <span class="relative pl-[80%] text-sub-text pt-[16px]"
+          ><a href="" class="new-password"><p>فراموشی رمز؟</p></a></span
+        >
+      </div>
+
+      <div class="btn-login">
+        <button
+          style="font-weight: 600"
+          class="w-[463px] h-[75px] text-[24px] text-white"
+        >
+          ورود
+        </button>
+      </div>
+
+      <div class="flex justify-center gap-[10px] mt-[8rem]">
+        <span
+          ><a
+            href="http://127.0.0.1:5500/Hash-nama/frontend/content/Regester/publicHTML/regester.html"
+            class="creat-new-account"
+            ><p class="text-[20px] text-dark-blue">ثبت نام</p></a
+          ></span
+        >
+        <span class="pt-[5px]"
+          ><p class="text-[16px] text-sub-text">ساخت اکانت جدید؟</p></span
+        >
+      </div>
+    </div>
+
+    <script src="../publicjs/login.js" type="module"></script>
+  </body>
+</html>
