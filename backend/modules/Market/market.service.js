@@ -1,6 +1,6 @@
+const { isValidObjectId } = require("mongoose");
 const MarketDataModel = require("../../models/MarketData");
 const axios = require("axios");
-const { formatNumber } = require("./../../utils/formatNumber");
 
 const normalizeSymbol = (symbol) => symbol.trim().toUpperCase();
 
@@ -29,24 +29,15 @@ exports.syncTop100Coins = async () => {
 							name: coin.name,
 							symbol: normalizedSymbol,
 							image: coin.image,
-							price: formatNumber(coin.current_price, "currency"),
-							marketCap: formatNumber(coin.market_cap),
+							price: coin.current_price,
+							marketCap: coin.market_cap,
 							marketCapRank: coin.market_cap_rank,
-							volume24h: formatNumber(
-								coin.total_volume,
-								"currency"
-							),
-							circulatingSupply: formatNumber(
-								coin.circulating_supply
-							),
-							priceChange24h: formatNumber(
-								coin.price_change_24h,
-								"currency"
-							),
-							priceChangePercentage24h: formatNumber(
-								coin.price_change_percentage_24h
-							),
-							ath: formatNumber(coin.ath, "currency"),
+							volume24h: coin.total_volume,
+							circulatingSupply: coin.circulating_supply,
+							priceChange24h: coin.price_change_24h,
+							priceChangePercentage24h:
+								coin.price_change_percentage_24h,
+							ath: coin.ath,
 							updatedAt: new Date(),
 						},
 					},
@@ -73,4 +64,21 @@ exports.getMarketData = async () => {
 		throw { status: 500, message: "Something Went Wrong" };
 	}
 	return market;
+};
+
+exports.getCoinPrice = async (coinId) => {
+	const price = await MarketDataModel.findOne({ _id: coinId }).select(
+		"price"
+	);
+	return price;
+};
+
+exports.isCoinExists = async (coinId) => {
+	if (!isValidObjectId(coinId)) {
+		throw { status: 400, message: "آیدی کوین معتبر نمیباشد!" };
+	}
+
+	const coin = await MarketDataModel.findById(coinId);
+
+	return coin ? true : false;
 };

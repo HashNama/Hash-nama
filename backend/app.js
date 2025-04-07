@@ -8,6 +8,7 @@ const authRoutes = require("./modules/Auth/auth.routes");
 const watchListRoutes = require("./modules/WatchList/watchList.routes");
 const walletRoutes = require("./modules/Wallet/wallet.routes");
 const marketRoutes = require("./modules/Market/market.routes");
+const alertRoutes = require("./modules/Alert/alert.routes");
 
 const apiDocRoutes = require("./modules/ApiDoc/swagger.routes");
 
@@ -37,6 +38,7 @@ app.use("/api/auth/", authRoutes);
 app.use("/api/watchlist/", watchListRoutes);
 app.use("/api/wallet", walletRoutes);
 app.use("/api/market", marketRoutes);
+app.use("/api/alert", alertRoutes);
 
 app.use("/api-doc", apiDocRoutes);
 //* Error

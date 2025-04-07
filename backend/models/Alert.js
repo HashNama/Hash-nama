@@ -6,7 +6,7 @@ const schema = mongoose.Schema(
 			type: Number,
 			required: true,
 		},
-		position: {
+		currentPositionToReachTarget: {
 			type: String,
 			enum: ["below", "above"],
 			required: true,
