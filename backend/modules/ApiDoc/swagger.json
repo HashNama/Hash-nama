@@ -286,6 +286,25 @@
 						}
 					}
 				]
+			},
+			"delete": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Alert"],
+				"parameters": [
+					{
+						"name": "alertId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "67f40d3d88ba817c66265cca"
+						}
+					}
+				]
 			}
 		}
 	}
