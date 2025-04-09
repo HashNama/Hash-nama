@@ -38,3 +38,10 @@ exports.updateAlert = async (alertId, price, currentPositionToReachTarget) => {
 
 	return updatedAlert;
 };
+
+exports.deleteAlertById = async (alertId) => {
+	const deletedAlert = await AlertModel.findByIdAndDelete(alertId)
+		.populate("coinId", "price name symbol image marketCapRank")
+		.populate("userId", "username email");
+	return deletedAlert;
+};

@@ -5,6 +5,9 @@ const tokenAuth = require("../../middlewares/tokenAuth");
 const router = express.Router();
 
 router.route("/").post(tokenAuth, controller.addAlert);
-router.route("/:alertId").put(tokenAuth, controller.updateAlert);
+router
+	.route("/:alertId")
+	.put(tokenAuth, controller.updateAlert)
+	.delete(tokenAuth, controller.deleteAlert);
 
 module.exports = router;

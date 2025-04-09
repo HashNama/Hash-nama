@@ -1,4 +1,3 @@
-const { response } = require("express");
 const { errorResponse, successResponse } = require("../../helpers/responses");
 const marketDataService = require("./../Market/market.service");
 const alertService = require("./alert.service");
@@ -68,6 +67,26 @@ exports.updateAlert = async (req, res, next) => {
 		return successResponse(res, 200, {
 			message: "هشدار قیمتی با موفقیت آپدیت شد!",
 			alert: updatedAlert,
+		});
+	} catch (err) {
+		next(err);
+	}
+};
+
+exports.deleteAlert = async (req, res, next) => {
+	try {
+		const { alertId } = req.params;
+
+		const alert = await alertService.getAlert(alertId);
+
+		if (!alert) {
+			return errorResponse(res, 404, "هیچ هشداری با این آیدی یافت نشد!");
+		}
+		const deletedAlert = await alertService.deleteAlertById(alertId);
+
+		return successResponse(res, 200, {
+			message: "هشدار با موفقیت حذف شد!",
+			deletedAlert,
 		});
 	} catch (err) {
 		next(err);
