@@ -1,6 +1,7 @@
 const { errorResponse, successResponse } = require("../../helpers/responses");
 const marketDataService = require("./../Market/market.service");
 const alertService = require("./alert.service");
+const { addAlertValidator } = require("./alert.validators");
 
 async function getPosition(coinId, price) {
 	try {
@@ -14,6 +15,8 @@ exports.addAlert = async (req, res, next) => {
 	try {
 		const { price, coinId } = req.body;
 		const userId = req.user._id;
+
+		await addAlertValidator.validate({ price }, { abortEarly: false });
 
 		const isCoinExists = await marketDataService.isCoinExists(coinId);
 		if (!isCoinExists) {
