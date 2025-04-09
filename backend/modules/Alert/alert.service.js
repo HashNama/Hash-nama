@@ -45,3 +45,12 @@ exports.deleteAlertById = async (alertId) => {
 		.populate("userId", "username email");
 	return deletedAlert;
 };
+
+exports.getAllUserAlerts = async (userId) => {
+	const alerts = await AlertModel.find({ userId })
+		.populate("coinId", "price name symbol image marketCapRank")
+		.populate("userId", "username email")
+		.lean();
+
+	return alerts;
+};

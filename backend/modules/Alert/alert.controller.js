@@ -95,3 +95,15 @@ exports.deleteAlert = async (req, res, next) => {
 		next(err);
 	}
 };
+
+exports.getUserAlerts = async (req, res, next) => {
+	try {
+		const userId = req.user._id;
+
+		const alerts = await alertService.getAllUserAlerts(userId);
+
+		return successResponse(res, 200, { alerts });
+	} catch (err) {
+		next(err);
+	}
+};
