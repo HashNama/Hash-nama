@@ -223,6 +223,14 @@
 			}
 		},
 		"/api/alert": {
+			"get": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Alert"]
+			},
 			"post": {
 				"security": [
 					{
