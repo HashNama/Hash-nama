@@ -25,6 +25,9 @@
 		},
 		{
 			"name": "Wallet"
+		},
+		{
+			"name": "Alert"
 		}
 	],
 	"paths": {
@@ -217,6 +220,72 @@
 						"description": "success"
 					}
 				}
+			}
+		},
+		"/api/alert": {
+			"post": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Alert"],
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"coinId": "67f437ab3418fddcabc0a305",
+									"price": 125000
+								},
+								"required": ["coinId", "price"]
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "success"
+					},
+					"400": {
+						"description": "invalid request body data"
+					}
+				}
+			}
+		},
+		"/api/alert/:alertId": {
+			"put": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Alert"],
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"price": 125000
+								},
+								"required": ["price"]
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"name": "alertId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "67f40d3d88ba817c66265cca"
+						}
+					}
+				]
 			}
 		}
 	}
