@@ -327,6 +327,14 @@
 				],
 				"tags": ["User"]
 			},
+			"delete": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["User"]
+			},
 			"put": {
 				"security": [
 					{
