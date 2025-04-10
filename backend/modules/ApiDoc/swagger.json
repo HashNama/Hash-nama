@@ -28,6 +28,9 @@
 		},
 		{
 			"name": "Alert"
+		},
+		{
+			"name": "User"
 		}
 	],
 	"paths": {
@@ -313,6 +316,16 @@
 						}
 					}
 				]
+			}
+		},
+		"api/user": {
+			"get": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["User"]
 			}
 		}
 	}
