@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "public")));
 
 //* Cron Job
-require("./modules/jobs/updataMarket.job");
+require("./modules/jobs/updateMarket.job");
 
 //* Routes
 app.use("/api/auth/", authRoutes);

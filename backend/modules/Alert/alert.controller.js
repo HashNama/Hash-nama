@@ -3,10 +3,10 @@ const marketDataService = require("./../Market/market.service");
 const alertService = require("./alert.service");
 const { addAlertValidator } = require("./alert.validators");
 
-async function getPosition(coinId, price) {
+async function getPosition(coinId, target) {
 	try {
 		const coin = await marketDataService.getCoinPrice(coinId);
-		return +price > +coin.price ? "below" : "above";
+		return +target > +coin.price ? "below" : "above";
 	} catch (err) {
 		throw { status: 500, message: "Something Went Wrong, Try Again!" };
 	}

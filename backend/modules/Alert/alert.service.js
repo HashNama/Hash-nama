@@ -1,6 +1,6 @@
 const { isValidObjectId } = require("mongoose");
 const AlertModel = require("./../../models/Alert");
-
+const { sendAlertEmail } = require("./../../utils/email");
 exports.addAlert = async (alertData) => {
 	const { coinId, userId, currentPositionToReachTarget, price } = alertData;
 
@@ -53,4 +53,40 @@ exports.getAllUserAlerts = async (userId) => {
 		.lean();
 
 	return alerts;
+};
+
+exports.sendAlertNotification = async () => {
+	const alerts = await AlertModel.find({ reached: false })
+		.populate("userId", "email")
+		.populate("coinId");
+
+	for (const alert of alerts) {
+		const coin = alert.coinId;
+
+		const currentCoinPrice = coin.price;
+		const target = alert.price;
+		const direction = alert.currentPositionToReachTarget;
+
+		const userEmail = alert.userId.email;
+
+		const reached =
+			direction === "above"
+				? currentCoinPrice <= target
+				: currentCoinPrice > target;
+
+		if (reached) {
+			const sendEmailStatus = await sendAlertEmail(
+				userEmail,
+				coin.symbol,
+				currentCoinPrice,
+				direction,
+				target
+			);
+
+			if (sendEmailStatus) {
+				alert.reached = true;
+				await alert.save();
+			}
+		}
+	}
 };
