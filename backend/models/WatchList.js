@@ -9,7 +9,7 @@ const watchListSchema = new mongoose.Schema(
 		},
 		coin: {
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "Coin",
+			ref: "MarketData",
 			required: true,
 		},
 	},

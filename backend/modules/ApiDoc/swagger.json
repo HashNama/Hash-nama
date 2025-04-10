@@ -18,10 +18,19 @@
 			"name": "Auth"
 		},
 		{
-			"name": "Coin"
+			"name": "Market"
 		},
 		{
 			"name": "WatchList"
+		},
+		{
+			"name": "Wallet"
+		},
+		{
+			"name": "Alert"
+		},
+		{
+			"name": "User"
 		}
 	],
 	"paths": {
@@ -87,97 +96,6 @@
 						"example": {
 							"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 						}
-					}
-				}
-			}
-		},
-		"/api/coin": {
-			"post": {
-				"tags": ["Coin"],
-				"requestBody": {
-					"content": {
-						"multipart/form-data": {
-							"schema": {
-								"type": "object",
-								"example": {
-									"image": "image.jpg",
-									"symbol": "BTC",
-									"name": "bitoin"
-								},
-								"required": ["image", "symbol", "name"]
-							}
-						}
-					}
-				},
-				"responses": {
-					"201": {
-						"description": "کوین با موفقیت اضافه شد"
-					},
-					"400": {
-						"description": "invalid request body data"
-					},
-					"500": {
-						"description": "internal server error"
-					}
-				}
-			}
-		},
-		"/api/coin/:id": {
-			"delete": {
-				"tags": ["Coin"],
-				"parameters": [
-					{
-						"name": "id",
-						"in": "path",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"example": "66d987654321098765432109"
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "کوین با موفقیت حذف شد"
-					},
-					"400": {
-						"description": "آیدی کوین نامعتبر است"
-					},
-					"404": {
-						"description": "کوین پیدا نشد"
-					}
-				}
-			}
-		},
-		"/api/coin/getAll": {
-			"get": {
-				"tags": ["Coin"],
-				"parameters": [
-					{
-						"name": "page",
-						"in": "query",
-						"required": false,
-						"schema": {
-							"type": "number",
-							"example": 1
-						}
-					},
-					{
-						"name": "limit",
-						"in": "query",
-						"required": false,
-						"schema": {
-							"type": "number",
-							"example": 1
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "کوین ها با موفقیت دریافت شدند"
-					},
-					"400": {
-						"description": "page و limit باید مقدار عددی داشته باشند"
 					}
 				}
 			}
@@ -250,6 +168,203 @@
 					"404": {
 						"description": "کوین پیدا نشد"
 					}
+				}
+			}
+		},
+		"/api/wallet/": {
+			"post": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Wallet"],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"address": "0x0ab94c79f986bbf77df888ac25e348cc3d7c9af9"
+								},
+								"required": ["address"]
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "ولت با موفقیت اضافه شد"
+					},
+					"400": {
+						"description": "یک آدرس توسط شما ثبت شده است"
+					}
+				}
+			},
+			"get": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Wallet"],
+				"responses": {
+					"200": {
+						"description": "success"
+					}
+				}
+			},
+			"delete": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Wallet"]
+			}
+		},
+		"/api/market": {
+			"get": {
+				"tags": ["Market"],
+				"responses": {
+					"200": {
+						"description": "success"
+					}
+				}
+			}
+		},
+		"/api/alert": {
+			"get": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Alert"]
+			},
+			"post": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Alert"],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"coinId": "67f437ab3418fddcabc0a305",
+									"price": 125000
+								},
+								"required": ["coinId", "price"]
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "success"
+					},
+					"400": {
+						"description": "invalid request body data"
+					}
+				}
+			}
+		},
+		"/api/alert/:alertId": {
+			"put": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Alert"],
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"price": 125000
+								},
+								"required": ["price"]
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"name": "alertId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "67f40d3d88ba817c66265cca"
+						}
+					}
+				]
+			},
+			"delete": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Alert"],
+				"parameters": [
+					{
+						"name": "alertId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "67f40d3d88ba817c66265cca"
+						}
+					}
+				]
+			}
+		},
+		"api/user": {
+			"get": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["User"]
+			},
+			"delete": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["User"]
+			},
+			"put": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["User"],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"username": "pourya",
+									"password": "pourya1234",
+									"email": "pourya@gmail.com"
+								},
+								"required": ["username", "email"]
+							}
+						}
+					},
+					"description": "password can be empty. if it's not it must be a valid password"
 				}
 			}
 		}
