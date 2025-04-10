@@ -213,6 +213,14 @@
 						"description": "success"
 					}
 				}
+			},
+			"delete": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["Wallet"]
 			}
 		},
 		"/api/market": {
