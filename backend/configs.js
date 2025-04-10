@@ -18,11 +18,13 @@ module.exports = {
 		sessionSecretKey: process.env.SESSION_SECRET_KEY,
 	},
 
-	redis: {
-		uri: process.env.REDIS_URI,
-	},
 	apiKeys: {
 		moralis: process.env.MORALIS_API_KEY,
+	},
+
+	email: {
+		user: process.env.EMAIL_USERNAME,
+		pass: process.env.EMAIL_PASSWORD,
 	},
 
 	domain: process.env.DOMAIN,

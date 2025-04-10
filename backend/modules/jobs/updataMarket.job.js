@@ -1,5 +1,6 @@
 const cron = require("node-cron");
 const marketService = require("../Market/market.service");
+const alertService = require("./../Alert/alert.service");
 
 // # ┌────────────── second
 // # │ ┌──────────── minute
@@ -13,6 +14,7 @@ const marketService = require("../Market/market.service");
 cron.schedule("*/30 * * * * *", async () => {
 	try {
 		await marketService.syncTop100Coins();
+		await alertSe;
 	} catch (err) {
 		console.error("Error:", err.message);
 	}
