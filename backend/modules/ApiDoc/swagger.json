@@ -181,7 +181,7 @@
 				"tags": ["Wallet"],
 				"requestBody": {
 					"content": {
-						"multipart/form-data": {
+						"application/json": {
 							"schema": {
 								"type": "object",
 								"example": {
@@ -243,7 +243,7 @@
 				"tags": ["Alert"],
 				"requestBody": {
 					"content": {
-						"multipart/form-data": {
+						"application/json": {
 							"schema": {
 								"type": "object",
 								"example": {
@@ -326,6 +326,30 @@
 					}
 				],
 				"tags": ["User"]
+			},
+			"put": {
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"tags": ["User"],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"username": "pourya",
+									"password": "pourya1234",
+									"email": "pourya@gmail.com"
+								},
+								"required": ["username", "email"]
+							}
+						}
+					},
+					"description": "password can be empty. if it's not it must be a valid password"
+				}
 			}
 		}
 	}
