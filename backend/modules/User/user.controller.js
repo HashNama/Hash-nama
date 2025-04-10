@@ -57,6 +57,17 @@ exports.updateUserInformation = async (req, res, next) => {
 
 exports.deleteUser = async (req, res, next) => {
 	try {
+		const userId = req.user._id;
+
+		const deletedUser = await userService.deleteUser(userId);
+		if (!deletedUser) {
+			return errorResponse(res, 500, "Somrthing Went Wrong");
+		}
+
+		return successResponse(res, 200, {
+			message: "اکانت کاربر با موفقیت حذف شد!",
+			user: deletedUser,
+		});
 	} catch (err) {
 		next(err);
 	}
