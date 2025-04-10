@@ -10,7 +10,8 @@ const updateValidator = yup.object().shape({
 	password: yup
 		.string()
 		.min(8, "رمز عبور حداقل باید 8 کارکتر باشد")
-		.max(48, "رمز عبور حداکثر میتواند 48 کارکتر باشد"),
+		.max(48, "رمز عبور حداکثر میتواند 48 کارکتر باشد")
+		.notRequired(),
 });
 
 module.exports = { updateValidator };

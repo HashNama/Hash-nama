@@ -28,13 +28,18 @@ exports.updateUserInformation = async (req, res, next) => {
 			{ username, password, email },
 			{ abortEarly: false }
 		);
-		const hashedPassword = await authService.hashPassword(password);
 
 		const newInfos = {
 			username,
-			password: hashedPassword,
 			email,
 		};
+
+		// if password is provided, validate & hash
+		if (password && password.trim() !== "") {
+			const hashedPassword = await authService.hashPassword(password);
+			newInfos.password = hashedPassword;
+		}
+
 		const updatedUser = await userService.updateUser(userId, newInfos);
 
 		if (!updatedUser) {

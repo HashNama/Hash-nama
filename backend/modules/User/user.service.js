@@ -10,7 +10,7 @@ exports.updateUser = async (userId, newInfos) => {
 				},
 			},
 			{ new: true }
-		);
+		).select("-password");
 
 		return updatedUser;
 	} catch (error) {}
