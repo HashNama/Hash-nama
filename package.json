@@ -9,6 +9,7 @@
 	"license": "ISC",
 	"description": "",
 	"dependencies": {
+		"@tailwindcss/cli": "^4.1.4",
 		"axios": "^1.8.4",
 		"bcrypt": "^5.1.1",
 		"cookie-parser": "^1.4.7",
@@ -26,6 +27,7 @@
 		"passport-google-oauth20": "^2.0.0",
 		"passport-local": "^1.0.0",
 		"swagger-ui-express": "^5.0.1",
+		"tailwindcss": "^4.1.4",
 		"uuid": "^10.0.0",
 		"yup": "^1.4.0"
 	}
