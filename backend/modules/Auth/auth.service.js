@@ -1,4 +1,5 @@
 const UserModel = require("./../../models/User");
+const OtpModel = require("./../../models/Otp");
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -105,4 +106,15 @@ exports.verifyRefreshToken = async (refreshToken) => {
 		}
 	);
 	return decoded;
+};
+
+exports.createOTP = async () => {
+	const token = crypto.randomUUID();
+	const code = Math.floor(Math.random() * (99999 - 10000) + 10000);
+
+	const otp = await OtpModel.create({ token, code });
+	if (!otp) {
+		throw { status: 500, message: "Something Went Wrong!!!" };
+	}
+	return otp;
 };

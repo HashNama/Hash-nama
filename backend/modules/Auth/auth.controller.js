@@ -46,13 +46,15 @@ exports.login = async (req, res, next) => {
 		const user = await authService.findUserByEmail(email);
 		await authService.compareWithHashedPassword(user, password);
 
+		const otp = await authService.createOTP();
+
 		const [accessToken, refreshToken] = await Promise.all([
 			authService.createAccessToken(user._id),
 			authService.createRefreshToken(user._id),
 		]);
 
 		authService.setRefreshTokenCookie(res, refreshToken);
-		return successResponse(res, 200, { accessToken });
+		return successResponse(res, 200, { accessToken, otp });
 	} catch (err) {
 		next(err);
 	}
