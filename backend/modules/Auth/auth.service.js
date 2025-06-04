@@ -108,13 +108,11 @@ exports.verifyRefreshToken = async (refreshToken) => {
 	return decoded;
 };
 
-exports.createOTP = async () => {
+exports.createOTP = async (email) => {
 	const token = crypto.randomUUID();
 	const code = Math.floor(Math.random() * (99999 - 10000) + 10000);
 
-	const otp = await OtpModel.create({ token, code });
-	if (!otp) {
-		throw { status: 500, message: "Something Went Wrong!!!" };
-	}
+	const otp = await OtpModel.create({ email, token, code });
+
 	return otp;
 };

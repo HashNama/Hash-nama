@@ -1,6 +1,7 @@
 const { registerValidator, loginValidator } = require("./auth.validators");
 const authService = require("./auth.service");
 const { successResponse, errorResponse } = require("../../helpers/responses");
+const { sendOtpEmail } = require("./../../utils/email");
 
 exports.register = async (req, res, next) => {
 	try {
@@ -46,15 +47,23 @@ exports.login = async (req, res, next) => {
 		const user = await authService.findUserByEmail(email);
 		await authService.compareWithHashedPassword(user, password);
 
-		const otp = await authService.createOTP();
+		const otp = await authService.createOTP(email);
+		if (!otp) {
+			return errorResponse(res, 500, "Something Went Wrong!");
+		}
 
-		const [accessToken, refreshToken] = await Promise.all([
-			authService.createAccessToken(user._id),
-			authService.createRefreshToken(user._id),
-		]);
+		const isSent = await sendOtpEmail(email, otp.code);
+		if (!isSent) {
+			return errorResponse(res, 500, "Something Went Wrong!");
+		}
 
-		authService.setRefreshTokenCookie(res, refreshToken);
-		return successResponse(res, 200, { accessToken, otp });
+		// const [accessToken, refreshToken] = await Promise.all([
+		// 	authService.createAccessToken(user._id),
+		// 	authService.createRefreshToken(user._id),
+		// ]);
+
+		// authService.setRefreshTokenCookie(res, refreshToken);
+		return successResponse(res, 200, { token: otp.token });
 	} catch (err) {
 		next(err);
 	}
