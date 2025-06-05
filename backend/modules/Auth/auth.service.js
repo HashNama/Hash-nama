@@ -6,11 +6,8 @@ const jwt = require("jsonwebtoken");
 const configs = require("./../../configs");
 const { isValidObjectId } = require("mongoose");
 
-exports.findUserById = async (userId) => {
-	if (!isValidObjectId(userId))
-		throw { status: 400, message: "شناسه کاربر معتبر نیست" };
-
-	const user = await UserModel.findById(userId);
+exports.findUserByEmail = async (email) => {
+	const user = await UserModel.findById(email);
 	if (!user) throw { status: 404, message: "کاربر یافت نشد" };
 
 	return user;
@@ -53,19 +50,17 @@ exports.createUserDocument = async (username, email, password) => {
 	return user;
 };
 
-exports.createAccessToken = (userId) => {
-	const accessToken = jwt.sign(
-		{ userId },
-		configs.auth.accessTokenSecretKey,
-		{ expiresIn: configs.auth.accessTokenExpriesInSeconds }
-	);
+exports.createAccessToken = (email) => {
+	const accessToken = jwt.sign({ email }, configs.auth.accessTokenSecretKey, {
+		expiresIn: configs.auth.accessTokenExpriesInSeconds,
+	});
 
 	return accessToken;
 };
 
-exports.createRefreshToken = (userId) => {
+exports.createRefreshToken = (email) => {
 	const refreshToken = jwt.sign(
-		{ userId },
+		{ email },
 		configs.auth.refreshTokenSecretKey,
 		{ expiresIn: configs.auth.refreshTokenExpriesInSeconds }
 	);
@@ -132,7 +127,8 @@ exports.increseOtpAttempt = async (token) => {
 		{ token },
 		{
 			$inc: { attempts: 1 },
-		}
+		},
+		{ new: true }
 	);
 
 	return newOtp;

@@ -11,9 +11,9 @@ module.exports = async (req, res, next) => {
 			token,
 			configs.auth.accessTokenSecretKey
 		);
-		const userId = decodedToken.userId;
+		const email = decodedToken.email;
 
-		const user = await authService.findUserById(userId);
+		const user = await authService.findUserByEmail(email);
 
 		req.user = user;
 		next();

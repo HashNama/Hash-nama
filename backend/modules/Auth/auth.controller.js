@@ -2,6 +2,7 @@ const { registerValidator, loginValidator } = require("./auth.validators");
 const authService = require("./auth.service");
 const { successResponse, errorResponse } = require("../../helpers/responses");
 const { sendOtpEmail } = require("./../../utils/email");
+const { email } = require("../../configs");
 
 exports.register = async (req, res, next) => {
 	try {
@@ -88,7 +89,7 @@ exports.verifyOTP = async (req, res, next) => {
 			return errorResponse(res, 404, "توکن اشتباه میباشد");
 		}
 
-		if (otp.attempts === 3) {
+		if (otp.attempts === 2) {
 			await authService.removeOtp(token);
 			return errorResponse(
 				res,
@@ -102,16 +103,18 @@ exports.verifyOTP = async (req, res, next) => {
 			return errorResponse(
 				res,
 				400,
-				`کد وارد شده اشتباه است(${3 - newOtp.attempts} باقی مانده)`
+				`کد وارد شده اشتباه است(${3 - newOtp.attempts} تلاش باقی مانده)`
 			);
 		}
 
-		// const [accessToken, refreshToken] = await Promise.all([
-		// 	authService.createAccessToken(user._id),
-		// 	authService.createRefreshToken(user._id),
-		// ]);
+		const [accessToken, refreshToken] = await Promise.all([
+			authService.createAccessToken(otp.email),
+			authService.createRefreshToken(otp.email),
+		]);
 
-		// authService.setRefreshTokenCookie(res, refreshToken);
+		authService.setRefreshTokenCookie(res, refreshToken);
+
+		return successResponse(res, 200, { accessToken });
 	} catch (err) {
 		next(err);
 	}
