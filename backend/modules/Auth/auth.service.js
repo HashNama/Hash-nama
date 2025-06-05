@@ -116,3 +116,24 @@ exports.createOTP = async (email) => {
 
 	return otp;
 };
+
+exports.findOtp = async (token) => {
+	const otp = await OtpModel.findOne({ token });
+	return otp;
+};
+
+exports.removeOtp = async (token) => {
+	await OtpModel.findOneAndDelete({ token });
+	return;
+};
+
+exports.increseOtpAttempt = async (token) => {
+	const newOtp = await OtpModel.findOneAndUpdate(
+		{ token },
+		{
+			$inc: { attempts: 1 },
+		}
+	);
+
+	return newOtp;
+};

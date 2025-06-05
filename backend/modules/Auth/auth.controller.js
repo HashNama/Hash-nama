@@ -57,12 +57,6 @@ exports.login = async (req, res, next) => {
 			return errorResponse(res, 500, "Something Went Wrong!");
 		}
 
-		// const [accessToken, refreshToken] = await Promise.all([
-		// 	authService.createAccessToken(user._id),
-		// 	authService.createRefreshToken(user._id),
-		// ]);
-
-		// authService.setRefreshTokenCookie(res, refreshToken);
 		return successResponse(res, 200, { token: otp.token });
 	} catch (err) {
 		next(err);
@@ -80,6 +74,44 @@ exports.refreshToken = async (req, res, next) => {
 
 		const accessToken = await authService.createAccessToken(decoded.userId);
 		return successResponse(res, 200, { accessToken });
+	} catch (err) {
+		next(err);
+	}
+};
+
+exports.verifyOTP = async (req, res, next) => {
+	try {
+		const { code, token } = req.body;
+
+		const otp = await authService.findOtp(token);
+		if (!otp) {
+			return errorResponse(res, 404, "توکن اشتباه میباشد");
+		}
+
+		if (otp.attempts === 3) {
+			await authService.removeOtp(token);
+			return errorResponse(
+				res,
+				400,
+				"شما بیش از حد مجاز تلاش کردید، لطفا دوباره کد را دریافت کنید"
+			);
+		}
+
+		if (+code !== otp.code) {
+			const newOtp = await authService.increseOtpAttempt(token);
+			return errorResponse(
+				res,
+				400,
+				`کد وارد شده اشتباه است(${3 - newOtp.attempts} باقی مانده)`
+			);
+		}
+
+		// const [accessToken, refreshToken] = await Promise.all([
+		// 	authService.createAccessToken(user._id),
+		// 	authService.createRefreshToken(user._id),
+		// ]);
+
+		// authService.setRefreshTokenCookie(res, refreshToken);
 	} catch (err) {
 		next(err);
 	}
