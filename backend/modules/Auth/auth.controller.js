@@ -2,7 +2,6 @@ const { registerValidator, loginValidator } = require("./auth.validators");
 const authService = require("./auth.service");
 const { successResponse, errorResponse } = require("../../helpers/responses");
 const { sendOtpEmail } = require("./../../utils/email");
-const { email } = require("../../configs");
 
 exports.register = async (req, res, next) => {
 	try {

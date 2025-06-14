@@ -4,7 +4,6 @@ const OtpModel = require("./../../models/Otp");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const configs = require("./../../configs");
-const { isValidObjectId } = require("mongoose");
 
 exports.findUserByEmail = async (email) => {
 	const user = await UserModel.findById(email);
