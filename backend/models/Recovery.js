@@ -23,6 +23,6 @@ const schema = new mongoose.Schema(
 
 schema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 
-const model = mongoose.model("otp", schema);
+const model = mongoose.model("recovery", schema);
 
 module.exports = model;
