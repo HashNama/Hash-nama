@@ -248,6 +248,71 @@ const generateOtpEmailTemplate = (code) => {
   `;
 };
 
+const generateRecoveryPasswordEmail = (link) => {
+	return `<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Reset Your Password</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #111;
+        font-family: Helvetica, Arial, sans-serif;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #1a1a1a;
+        color: #ffffff;
+        text-align: center;
+        border-radius: 8px;
+      }
+      .title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fcd535;
+        margin-bottom: 10px;
+      }
+      .text {
+        font-size: 16px;
+        color: #cccccc;
+        margin-bottom: 30px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #fcd535;
+        color: #111;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 6px;
+      }
+      .footer {
+        margin-top: 30px;
+        font-size: 12px;
+        color: #555555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Reset Your Password</div>
+      <div class="text">Click the button below to reset your password. This link is valid for 5 minutes.</div>
+      <a class="btn" href="${link}" target="_blank">Reset Password</a>
+      <div class="footer">
+        If you didn’t request this password reset, you can safely ignore this email.
+      </div>
+    </div>
+  </body>
+</html>
+`;
+};
+
 const sendAlertEmail = async (
 	to,
 	symbol,
@@ -291,4 +356,20 @@ const sendOtpEmail = async (to, code) => {
 	}
 };
 
-module.exports = { sendAlertEmail, sendOtpEmail };
+const sendRecoveryPasswordEmail = async (to, link) => {
+	const mailOption = {
+		from: `"HashNama Auth System" ${configs.email.user}`,
+		to,
+		subject: `Recovery Password`,
+		html: generateRecoveryPasswordEmail(link),
+	};
+
+	try {
+		await transporter.sendMail(mailOption);
+		return true;
+	} catch (err) {
+		return false;
+	}
+};
+
+module.exports = { sendAlertEmail, sendOtpEmail, sendRecoveryPasswordEmail };

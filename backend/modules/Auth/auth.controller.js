@@ -1,7 +1,11 @@
 const { registerValidator, loginValidator } = require("./auth.validators");
 const authService = require("./auth.service");
 const { successResponse, errorResponse } = require("../../helpers/responses");
-const { sendOtpEmail } = require("./../../utils/email");
+const {
+	sendOtpEmail,
+	sendRecoveryPasswordEmail,
+} = require("./../../utils/email");
+const configs = require("../../configs");
 
 exports.register = async (req, res, next) => {
 	try {
@@ -114,6 +118,40 @@ exports.verifyOTP = async (req, res, next) => {
 		authService.setRefreshTokenCookie(res, refreshToken);
 
 		return successResponse(res, 200, { accessToken });
+	} catch (err) {
+		next(err);
+	}
+};
+
+exports.passwordRecovery = async (req, res, next) => {
+	try {
+		const { email } = req.body;
+
+		await authService.findUserByEmail(email); // USE AS A IS-EXISTS FUNCTION
+
+		const isExistRecovery = await authService.findRecovery(email);
+		if (isExistRecovery) {
+			return errorResponse(
+				res,
+				400,
+				"شما درخواست ریکاوری داده اید. لطفا ایمیل خود را چک کرده. در صورت عدم دریافت ایمیل،5 دقیقه دیگر تلاش کنید"
+			);
+		}
+
+		const recovery = await authService.createRecovery(email);
+		if (!recovery) {
+			return errorResponse(res, 500, "Something Went Wrong!!");
+		}
+
+		const isSent = await sendRecoveryPasswordEmail(
+			email,
+			`${configs.domain}/auth/recovery?token=${recovery.token}`
+		);
+		if (!isSent) {
+			return errorResponse(res, 500, "Something Went Wrong!!");
+		}
+
+		return successResponse(res, 200, { msg: "email sent successfully" });
 	} catch (err) {
 		next(err);
 	}

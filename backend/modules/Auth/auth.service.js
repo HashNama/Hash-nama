@@ -1,8 +1,10 @@
 const UserModel = require("./../../models/User");
 const OtpModel = require("./../../models/Otp");
+const RecoveryModel = require("./../../models/Recovery");
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
 const configs = require("./../../configs");
 
 exports.findUserByEmail = async (email) => {
@@ -131,4 +133,20 @@ exports.increseOtpAttempt = async (token) => {
 	);
 
 	return newOtp;
+};
+
+exports.createRecovery = async (email) => {
+	const token = crypto.randomBytes(32).toString("hex");
+
+	const recovery = await RecoveryModel.create({ email, token });
+
+	return recovery;
+};
+
+exports.findRecovery = async (finder) => {
+	const recovery = await RecoveryModel.findOne({
+		$or: [{ email: finder }, { token: finder }],
+	});
+
+	return recovery;
 };

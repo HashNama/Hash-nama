@@ -9,4 +9,6 @@ router.route("/refresh-token").post(controller.refreshToken);
 
 router.route("/verify-otp").post(controller.verifyOTP);
 
+router.route("/recovery").post(controller.passwordRecovery);
+
 module.exports = router;
