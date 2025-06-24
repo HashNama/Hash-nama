@@ -1,4 +1,8 @@
-const { registerValidator, loginValidator } = require("./auth.validators");
+const {
+	registerValidator,
+	loginValidator,
+	recoveryPaasswordValidator,
+} = require("./auth.validators");
 const authService = require("./auth.service");
 const { successResponse, errorResponse } = require("../../helpers/responses");
 const {
@@ -123,7 +127,7 @@ exports.verifyOTP = async (req, res, next) => {
 	}
 };
 
-exports.passwordRecovery = async (req, res, next) => {
+exports.generatePasswordRecoveryLink = async (req, res, next) => {
 	try {
 		const { email } = req.body;
 
@@ -145,13 +149,49 @@ exports.passwordRecovery = async (req, res, next) => {
 
 		const isSent = await sendRecoveryPasswordEmail(
 			email,
-			`${configs.domain}/auth/recovery?token=${recovery.token}`
+			`${configs.domain}/api/auth/recovery?token=${recovery.token}`
 		);
 		if (!isSent) {
 			return errorResponse(res, 500, "Something Went Wrong!!");
 		}
 
 		return successResponse(res, 200, { msg: "email sent successfully" });
+	} catch (err) {
+		next(err);
+	}
+};
+
+exports.confirmPasswordRecovery = async (req, res, next) => {
+	try {
+		const { token } = req.query;
+		const { newPassword } = req.body;
+
+		const recovery = await authService.findRecovery(token);
+		if (!recovery) {
+			return errorResponse(res, 404, "invalid token");
+		}
+
+		await recoveryPaasswordValidator.validate(
+			{ password: newPassword },
+			{ abortEarly: false }
+		);
+
+		const hashedPassword = await authService.hashPassword(newPassword);
+
+		const updatedUser = await authService.updateUser(
+			{ email: recovery.email },
+			{ password: hashedPassword }
+		);
+
+		if (!updatedUser) {
+			return errorResponse(res, 500, "Something WEnt Wrong!");
+		}
+
+		await authService.deleteRecovery(token);
+
+		return successResponse(res, 200, {
+			msg: "رمزعبور با موفقیت تغییر یافت",
+		});
 	} catch (err) {
 		next(err);
 	}

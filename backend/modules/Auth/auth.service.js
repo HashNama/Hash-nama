@@ -150,3 +150,20 @@ exports.findRecovery = async (finder) => {
 
 	return recovery;
 };
+
+exports.updateUser = async (filter, newData) => {
+	const updatedUser = await UserModel.findOneAndUpdate(
+		filter,
+		{
+			$set: newData,
+		},
+		{ new: true }
+	);
+
+	return updatedUser;
+};
+
+exports.deleteRecovery = async (token) => {
+	await RecoveryModel.deleteOne({ token });
+	return;
+};
