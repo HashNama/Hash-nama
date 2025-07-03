@@ -1,1 +1,4 @@
 @import "tailwindcss";
+/*
+npx @tailwindcss/cli -i ./src/input.css -o ./frontend/public/styles/main.css --watch
+*/

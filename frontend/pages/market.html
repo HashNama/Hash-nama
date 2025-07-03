@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>market</title>
+    <link rel="stylesheet" href="../public/styles/main.css" />
+    <link rel="stylesheet" href="../public/styles/wallet/wallet.css" />
+  </head>
+  <body class="bg-[#0D0F15]">
+    <div class="w-[1890x]">
+      <div class="flex justify-center w-[1890px]">
+        <div class="w-[250px] h-[1024px] absolute right-[0px] bg-[#12141C]">
+          <div class="grid justify-center gap-[40px] mt-[40px]">
+            <div>
+              <h1
+                class="text-[32px] text-center text-[#E5E5E5] font-bold tracking-tighter"
+              >
+                هش نما
+              </h1>
+            </div>
+            <div>
+              <img src="../public/svgs/wallet/line2.png" alt="" />
+              <img
+                class="pt-[3px]"
+                src="../public/svgs/wallet/line.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="grid mt-[40px] gap-[16px]">
+            <button
+              id="home"
+              class="flex text-[#E5E5E5] pl-[7rem] pt-[10px] ml-auto mr-auto text-[14px] font-medium bg-[#181A24] gap-[10px] rounded-[12px] w-[202px] h-[47px]"
+            >
+              <p>داشبورد</p>
+              <img
+                class="w-[20px] h-[20px]"
+                src="../public/svgs/wallet/home-2.png"
+                alt=""
+              />
+            </button>
+            <button
+              id="card"
+              class="flex text-[#E5E5E5] pl-[8.3rem] pt-[10px] ml-auto mr-auto text-[14px] font-medium bg-[#181A24] gap-[10px] rounded-[12px] w-[202px] h-[47px]"
+            >
+              <p>ولت</p>
+              <img
+                class="w-[20px] h-[20px]"
+                src="../public/svgs/wallet/card.png"
+                alt=""
+              />
+            </button>
+            <button
+              id="receipt"
+              class="flex text-[#E5E5E5] pl-[8.5rem] pt-[10px] ml-auto mr-auto text-[14px] font-medium bg-[#4667FB] gap-[10px] rounded-[12px] w-[202px] h-[47px]"
+            >
+              <p>بازار</p>
+              <img
+                class="w-[20px] h-[20px]"
+                src="../public/svgs/wallet/receipt-tax.png"
+                alt=""
+              />
+            </button>
+            <button
+              id="message"
+              class="flex text-[#E5E5E5] pl-[1.7rem] pt-[10px] ml-auto mr-auto text-[14px] font-medium bg-[#181A24] gap-[10px] rounded-[12px] w-[202px] h-[47px]"
+            >
+              <div class="w-[130px]">
+                <p class="w-[125px]">واچلیست و هشدار ها</p>
+              </div>
+              <img
+                class="w-[20px] h-[20px]"
+                src="../public/svgs/wallet/message.png"
+                alt=""
+              />
+            </button>
+          </div>
+          <div class="relative top-[34rem]">
+            <button
+              id="home"
+              class="flex text-[#718096] pl-[7rem] pt-[10px] ml-auto mr-auto text-[14px] font-medium bg-[#181A24] gap-[10px] rounded-[12px] w-[202px] h-[47px]"
+            >
+              <p>تنظیمات</p>
+              <img
+                class="w-[20px] h-[20px]"
+                src="../public/svgs/wallet/settings.png"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="bg-[#12141C] relative right-[138px] w-[1520px] h-[64px] flex gap-[13rem] mt-[32px] rounded-[20px] justify-around items-center"
+        >
+          <div>
+            <span><img src="../public/svgs/wallet/notifications.png" /></span>
+          </div>
+
+          <div class="flex">
+            <div>
+              <input
+                class="w-[500px] text-[#E5E5E5] shadow-[#1e202b] shadow-sm text-right focus:outline-none h-[36px] bg-[#181A24] rounded-[16px]"
+              />
+            </div>
+            <div id="sarch-input" class="flex gap-[12px] absolute ml-[25rem]">
+              <p class="text-[#A7A6B8] text-[16px]">...جستجو</p>
+              <img
+                class="w-5 h-5 mt-[5px]"
+                src="../public/svgs/wallet/search.png"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-[130px] h-[36px] bg-[#0092C9] text-[#E5E5E5] rounded-[10px] text-[16px] font-semibold"
+            >
+              گفتگو
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="w-[1520px] h-[880px] bg-[#12141C] absolute left-[3rem] rounded-[25px] mt-[3rem]"
+    >
+      <div class="mr-[2rem] mt-[20px]">
+        <h1
+          style="direction: rtl"
+          class="text-[20px] text-[#E5E5E5] font-semibold"
+        >
+          نمای بازار
+        </h1>
+      </div>
+
+      <div
+        class="w-[1462px] h-[58px] bg-[#181A24] rounded-[10px] mt-[20px] ml-auto mr-auto flex justify-center items-center gap-[6.8rem]"
+      >
+        <ul>
+          <p class="text-[12px] text-[#B8B8B8] font-medium">#</p>
+        </ul>
+
+        <ul class="">
+          <p class="text-[12px] text-[#B8B8B8] font-medium">نام</p>
+        </ul>
+
+        <ul class="flex gap-[5px] ml-[12px]">
+          <p class="text-[12px] text-[#B8B8B8] font-medium">قیمت</p>
+          <img
+            id="vector-imformaiton"
+            class="w-[14 px] h-[14px] mt-[3px]"
+            src="../public/svgs/market/Vector1.png"
+            alt=""
+          />
+        </ul>
+
+        <ul class="flex gap-[5px]">
+          <p class="text-[12px] text-[#B8B8B8] font-medium">تغییرات 24h</p>
+          <img
+            id="vector-imformaiton"
+            class="w-[14 px] h-[14px] mt-[3px]"
+            src="../public/svgs/market/Vector1.png"
+            alt=""
+          />
+        </ul>
+
+        <ul class="flex gap-[5px]">
+          <p class="text-[12px] text-[#B8B8B8] font-medium">مارکت کپ</p>
+          <img
+            id="vector-imformaiton"
+            class="w-[14 px] h-[14px] mt-[3px]"
+            src="../public/svgs/market/Vector1.png"
+            alt=""
+          />
+        </ul>
+
+        <ul class="flex gap-[5px]">
+          <p class="text-[12px] text-[#B8B8B8] font-medium">حجم 24h</p>
+          <img
+            id="vector-imformaiton"
+            class="w-[14 px] h-[14px] mt-[3px]"
+            src="../public/svgs/market/Vector1.png"
+            alt=""
+          />
+        </ul>
+
+        <ul>
+          <p class="text-[12px] text-[#B8B8B8] font-medium">توکن های در چرخش</p>
+        </ul>
+
+        <ul>
+          <p class="text-[12px] text-[#B8B8B8] font-medium">چارت</p>
+        </ul>
+
+        <ul>
+          <p class="text-[12px] text-[#B8B8B8] font-medium">
+            افزودن به واچلیست
+          </p>
+        </ul>
+      </div>
+
+      <div class="w-[1462px] h-[572px] mt-[20px] ml-auto mr-auto">
+        <div
+          class="w-[1429px] h-[78px] flex gap-[4.5rem] items-center justify-center ml-auto mr-auto border-b-[1px] border-white mt-[20px]"
+        >
+          <ul class="w-[28px] text-center">
+            <p id="number-currency" class="text-[16px] text-[#E5E5E5]">1</p>
+          </ul>
+          <ul class="flex gap-[3px] w-[100px] text-center">
+            <img
+              class="w-[24px] h-[24px]"
+              id="img-currency"
+              src="../public/svgs/market/Bitcoin.png"
+              alt=""
+            />
+            <h1
+              id="name-currency"
+              class="text-[#E5E5E5] w-[80px] font-medium text-center text-[16px]"
+            >
+              Bitcoin
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px]">
+            <h1
+              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
+              id="price-currency"
+            >
+              $645.454
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px]">
+            <h1
+              id="difrent-currency"
+              class="text-[#00FFA3] w-[100px] text-[12px]"
+            >
+              6.80%
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px]">
+            <h1
+              id="cap-currency"
+              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
+            >
+              $645T
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px]">
+            <h1
+              id="value-currency"
+              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
+            >
+              $697B
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px] text-center">
+            <h1
+              id="type-currency"
+              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
+            >
+              19.2M BTC
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px] text-center">
+            <img
+              class="w-[80px] h-[24px]"
+              src="../public/svgs/market/Frame 34408.png"
+              alt=""
+            />
+          </ul>
+          <ul class="w-[100px] h-[25px] text-center flex justify-center">
+            <img
+              class="h-[30px] w-[80px]"
+              src="../public/svgs/market/Frame 34336.png"
+              alt=""
+            />
+          </ul>
+        </div>
+        <div
+          class="w-[1429px] h-[78px] flex gap-[4.5rem] items-center justify-center ml-auto mr-auto border-b-[1px] border-white mt-[20px]"
+        >
+          <ul class="w-[28px] text-center">
+            <p id="number-currency" class="text-[16px] text-[#E5E5E5]">1</p>
+          </ul>
+          <ul class="flex gap-[3px] w-[100px] text-center">
+            <img
+              class="w-[24px] h-[24px]"
+              id="img-currency"
+              src="../public/svgs/market/Bitcoin.png"
+              alt=""
+            />
+            <h1
+              id="name-currency"
+              class="text-[#E5E5E5] w-[80px] font-medium text-center text-[16px]"
+            >
+              Bitcoin
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px]">
+            <h1
+              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
+              id="price-currency"
+            >
+              $645.454
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px]">
+            <h1
+              id="difrent-currency"
+              class="text-[#00FFA3] w-[100px] text-[12px]"
+            >
+              6.80%
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px]">
+            <h1
+              id="cap-currency"
+              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
+            >
+              $645T
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px]">
+            <h1
+              id="value-currency"
+              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
+            >
+              $697B
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px] text-center">
+            <h1
+              id="type-currency"
+              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
+            >
+              19.2M BTC
+            </h1>
+          </ul>
+          <ul class="w-[100px] h-[25px] text-center">
+            <img
+              class="w-[80px] h-[24px]"
+              src="../public/svgs/market/Frame 34408.png"
+              alt=""
+            />
+          </ul>
+          <ul class="w-[100px] h-[25px] text-center flex justify-center">
+            <img
+              class="h-[30px] w-[80px]"
+              src="../public/svgs/market/Frame 34336.png"
+              alt=""
+            />
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex justify-center gap-[59rem] mt-[2rem]">
+        <div class="flex gap-[2rem]">
+          <button id="left-png">
+            <img src="../public/svgs/market/Prev.png" alt="" />
+          </button>
+          <div class="flex">
+            <ul class="w-[32px] h-[32px] bg-[#4667FB] rounded-[10px]">
+              <p
+                id="number-page"
+                class="text-[12px] mt-[5px] text-[#ffffff] font-medium flex justify-center items-center"
+              >
+                1
+              </p>
+            </ul>
+            <ul class="w-[32px] h-[32px] rounded-[10px]">
+              <p
+                id="number-page"
+                class="text-[12px] mt-[5px] text-[#ffffff] font-medium flex justify-center items-center"
+              >
+                2
+              </p>
+            </ul>
+            <ul class="w-[32px] h-[32px] rounded-[10px]">
+              <p
+                id="number-page"
+                class="text-[12px] mt-[5px] text-[#ffffff] font-medium flex justify-center items-center"
+              >
+                10
+              </p>
+            </ul>
+          </div>
+          <button id="next-png">
+            <img src="../public/svgs/market/Next.png" alt="" />
+          </button>
+        </div>
+        <div class="flex gap-[12px]">
+          <h1 class="text-[#687588] mt-[5px] text-[14px] font-medium">
+            نمایش 1 تا 10 ارز بین 200 ارز
+          </h1>
+          <button
+            id="all-page"
+            class="w-[90px] h-[32px] border-1 border-[#323B49] rounded-[8px] flex gap-[3px] justify-center"
+          >
+            <p class="text-[#FFFFFF] mt-[4px] text-[14px] font-medium">
+              نمایش 10
+            </p>
+            <img
+              src="../public/svgs/market/chevron-up.png"
+              class="w-[16px] h-[16px] mt-[7px]"
+              alt=""
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

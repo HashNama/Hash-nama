@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>regester</title>
+    <link rel="stylesheet" href="../public/styles/regester/regester.css" />
+    <link rel="stylesheet" href="../public/styles/main.css" />
+  </head>
+  <body style="background-image: url(../public/images/Background.png)">
+    <div
+      class="bg-[#12141C] rounded-[75px] w-[660px] h-[880px] mt-[25px]"
+      id="count-login"
+    >
+      <div
+        id="header-regester"
+        class="grid justify-center gap-[36px] mt-[32px]"
+      >
+        <div class="ml-auto mr-auto">
+          <h1 class="text-[48px] text-[#E5E5E5] font-medium">هش نما</h1>
+        </div>
+        <div class="w-[390px] h-[65px] ml-auto mr-auto">
+          <button
+            id="regester-googel"
+            class="w-[390px] h-[65px] rounded-[15px] bg-[#4667FB]"
+          >
+            <img
+              class="ml-auto mr-auto"
+              src="../public/svgs/regester/googel.png"
+            />
+          </button>
+        </div>
+        <div>
+          <img
+            class="ml-auto mr-auto"
+            src="../public/svgs/regester/Or.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div id="input-regester" class="grid gap-[16px] mt-[50px]">
+        <div class="grid justify-center gap-[5px]">
+          <div class="flex justify-center">
+            <input
+              class="w-[462px] rounded-[15px] text-[#B8B8B8] shadow-2xl h-[75px] pl-[20rem] bg-[#181A24] border-none focus:outline-none"
+              type="text"
+              placeholder="نام کاربری"
+              id="user-name"
+            />
+            <span class="flex items-center absolute z-[3] mt-[26px] ml-[24rem]"
+              ><img src="../public/svgs/regester/User Icon.png" alt="" />
+            </span>
+          </div>
+          <span id="true-username" class="ml-auto mr-auto md:hidden"
+            ><h1 class="text-red-400">نام کابری را صحیح نیست</h1></span
+          >
+        </div>
+
+        <div class="grid justify-center gap-[5px]">
+          <div class="flex justify-center">
+            <input
+              class="w-[462px] rounded-[15px] text-[#B8B8B8] shadow-2xl h-[75px] pl-[22rem] bg-[#181A24] border-none focus:outline-none"
+              type="text"
+              placeholder="ایمیل"
+              id="user-email"
+            />
+            <span class="flex items-center absolute z-[3] mt-[26px] ml-[24rem]"
+              ><img src="../public/svgs/regester/Email.png" alt="" />
+            </span>
+          </div>
+          <span id="true-useremail" class="ml-auto mr-auto md:hidden"
+            ><h1 class="text-red-400">ایمیل نادرست است</h1></span
+          >
+        </div>
+
+        <div class="grid justify-center gap-[5px]">
+          <div class="flex justify-center">
+            <input
+              class="w-[462px] rounded-[15px] text-[#B8B8B8] shadow-2xl h-[75px] pl-[23rem] bg-[#181A24] border-none focus:outline-none"
+              type="password"
+              placeholder="رمز"
+              id="user-password"
+            />
+            <span class="flex items-center absolute z-[3] mt-[26px] ml-[24rem]"
+              ><img src="../public/svgs/regester/password.png" alt="" />
+            </span>
+            <span class="flex items-center absolute z-[3] mt-[26px] mr-[24rem]"
+              ><img
+                class="svg-hide-password"
+                src="../public/svgs/regester/hide.png"
+                alt=""
+              />
+            </span>
+          </div>
+          <span id="true-password" class="ml-auto mr-auto md:hidden"
+            ><h1 class="text-red-400 text-[14px]">
+              رمز باید کاراکتر کوچک و بزرگ و اعداد باشد
+            </h1></span
+          >
+        </div>
+
+        <div class="grid justify-center gap-[5px]">
+          <div class="flex justify-center">
+            <input
+              class="w-[462px] rounded-[15px] text-[#B8B8B8] shadow-2xl h-[75px] pl-[19rem] bg-[#181A24] border-none focus:outline-none"
+              type="password"
+              placeholder="تکرار رمز عبور"
+              id="user-password-confirm"
+            />
+            <span class="flex items-center absolute z-[3] mt-[26px] ml-[24rem]"
+              ><img src="../public/svgs/regester/password.png" alt="" />
+            </span>
+            <span class="flex items-center absolute z-[3] mt-[26px] mr-[24rem]"
+              ><img
+                class="svg-visibel-password"
+                src="../public/svgs/regester/hide.png"
+                alt=""
+              />
+            </span>
+          </div>
+          <span id="true-password-confirm" class="ml-auto mr-auto md:hidden"
+            ><h1 class="text-red-400">رمز عبوری یکی نیست</h1></span
+          >
+        </div>
+      </div>
+
+      <div id="footer-regester" class="grid justify-center gap-[16] mt-[32px]">
+        <div>
+          <button
+            id="user-registration"
+            class="w-[463px] h-[75px] font-bold text-[26px] font-poppinsSemiBold text-[#FFFFFF] bg-[#0092C9] rounded-[15px]"
+          >
+            ثبت نام
+          </button>
+        </div>
+        <div class="ml-auto mr-auto">
+          <h1 class="text-[16px] font-medium text-[#CBCBCB]">
+            اکانت دارید؟<a
+              id="wel-user"
+              class="text-[#4667FB] font-bold text-[20px]"
+              href="http://127.0.0.1:5500/Hash-nama/frontend/pages/login.html"
+              >ورود</a
+            >
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <script src="../public/js/register/regester.js" type="module"></script>
+    <script src="../public/js/register/userName.js" type="module"></script>
+    <script src="../public/js/register/userEmail.js" type="module"></script>
+    <script src="../public/js/register/userPassword.js" type="module"></script>
+    <script src="../public/js/register/singUp.js" type="module"></script>
+  </body>
+</html>
