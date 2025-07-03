@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head dir="rtl">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wallet</title>
+    <link rel="stylesheet" href="../public/styles/main.css" />
+    <link rel="stylesheet" href="../public/styles/wallet/wallet.css" />
+  </head>
+  <body class="bg-[#0D0F15]">
+    <div class="w-[1890px]">
+      <div class="flex justify-center w-[1890px]">
+        <div class="w-[250px] h-[1024px] absolute right-[0px] bg-[#12141C]">
+          <div class="grid justify-center gap-[40px] mt-[40px]">
+            <div>
+              <h1
+                class="text-[32px] text-center text-[#E5E5E5] font-bold tracking-tighter"
+              >
+                هش نما
+              </h1>
+            </div>
+            <div>
+              <img src="../public/svgs/wallet/line2.png" alt="" />
+              <img
+                class="pt-[3px]"
+                src="../public/svgs/wallet/line.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="grid mt-[40px] gap-[16px]">
+            <button
+              id="home"
+              class="flex text-[#E5E5E5] pl-[7rem] pt-[10px] ml-auto mr-auto text-[14px] font-medium bg-[#181A24] gap-[10px] rounded-[12px] w-[202px] h-[47px]"
+            >
+              <p>داشبورد</p>
+              <img
+                class="w-[20px] h-[20px]"
+                src="../public/svgs/wallet/home-2.png"
+                alt=""
+              />
+            </button>
+            <button
+              id="card"
+              class="flex text-[#E5E5E5] pl-[8.3rem] pt-[10px] ml-auto mr-auto text-[14px] font-medium bg-[#4667FB] gap-[10px] rounded-[12px] w-[202px] h-[47px]"
+            >
+              <p>ولت</p>
+              <img
+                class="w-[20px] h-[20px]"
+                src="../public/svgs/wallet/card.png"
+                alt=""
+              />
+            </button>
+            <button
+              id="receipt"
+              class="flex text-[#E5E5E5] pl-[8.5rem] pt-[10px] ml-auto mr-auto text-[14px] font-medium bg-[#181A24] gap-[10px] rounded-[12px] w-[202px] h-[47px]"
+            >
+              <p>بازار</p>
+              <img
+                class="w-[20px] h-[20px]"
+                src="../public/svgs/wallet/receipt-tax.png"
+                alt=""
+              />
+            </button>
+            <button
+              id="message"
+              class="flex text-[#E5E5E5] pl-[1.7rem] pt-[10px] ml-auto mr-auto text-[14px] font-medium bg-[#181A24] gap-[10px] rounded-[12px] w-[202px] h-[47px]"
+            >
+              <div class="w-[130px]">
+                <p class="w-[125px]">واچلیست و هشدار ها</p>
+              </div>
+              <img
+                class="w-[20px] h-[20px]"
+                src="../public/svgs/wallet/message.png"
+                alt=""
+              />
+            </button>
+          </div>
+          <div class="relative top-[34rem]">
+            <button
+              id="home"
+              class="flex text-[#718096] pl-[7rem] pt-[10px] ml-auto mr-auto text-[14px] font-medium bg-[#181A24] gap-[10px] rounded-[12px] w-[202px] h-[47px]"
+            >
+              <p>تنظیمات</p>
+              <img
+                class="w-[20px] h-[20px]"
+                src="../public/svgs/wallet/settings.png"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="bg-[#12141C] relative right-[138px] w-[1520px] h-[64px] flex gap-[13rem] mt-[32px] rounded-[20px] justify-around items-center"
+        >
+          <div>
+            <span><img src="../public/svgs/wallet/notifications.png" /></span>
+          </div>
+
+          <div class="flex">
+            <div>
+              <input
+                class="w-[500px] text-[#E5E5E5] shadow-[#1e202b] shadow-sm text-right focus:outline-none h-[36px] bg-[#181A24] rounded-[16px]"
+              />
+            </div>
+            <div id="sarch-input" class="flex gap-[12px] absolute ml-[25rem]">
+              <p class="text-[#A7A6B8] text-[16px]">...جستجو</p>
+              <img
+                class="w-5 h-5 mt-[5px]"
+                src="../public/svgs/wallet/search.png"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-[130px] h-[36px] bg-[#0092C9] text-[#E5E5E5] rounded-[10px] text-[16px] font-semibold"
+            >
+              گفتگو
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid relative right-[138px]">
+        <div
+          class="w-[1520px] h-[340px] bg-[#12141C] rounded-[25px] ml-auto mr-auto mt-[36px]"
+        >
+          <div class="flex justify-center gap-[56rem] pt-[16px]">
+            <div>
+              <button
+                id="remove-wallet"
+                class="bg-[#8C3A3A] text-[#E5E5E5] w-[85px] h-[40px] rounded-[10px]"
+              >
+                حذف ولت
+              </button>
+            </div>
+
+            <div class="flex gap-[7px]">
+              <p
+                id="wallet-id"
+                class="text-[#B8B8B8] text-[12px] tracking-wider font-medium"
+              >
+                0x7bfee91193d9df2ac0bfe90191d40f23c773c060
+              </p>
+              <img
+                id="Vector-id"
+                class="w-[15px] h-[18px]"
+                src="../public/svgs/wallet/Vector.png"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div class="flex gap-[57px] justify-around mt-[12px]">
+            <div>
+              <div class="grid gap-[12px] w-[725px] h-[245px] ml-[16px]">
+                <div>
+                  <img src="../public/svgs/wallet/Title.png" alt="" />
+                </div>
+                <div
+                  class="w-[720px] h-[200px] bg-[#181A24] rounded-[15px] flex gap-[48px]"
+                >
+                  <div class="grid gap-[16px] w-[465px] h-[170px] ml-[16px]">
+                    <div>
+                      <h1
+                        class="text-[#FFFFFF] mt-[12px] ml-[77%] font-semibold text-[16px]"
+                      >
+                        تجزیه دارایی ها
+                      </h1>
+                    </div>
+                    <div
+                      class="text-[#B8B8B8] font-bold flex gap-[9rem] w-[460px] h-[38px] bg-[#12141C] rounded-[10px] justify-center items-center"
+                    >
+                      <h1>نوع</h1>
+                      <h1>مقدار</h1>
+                      <h1>دارایی</h1>
+                    </div>
+                    <div class="grid gap-[10px]">
+                      <div class="w-[450px] h-[20px] flex justify-between">
+                        <div
+                          class="flex gap-[25px] justify-around w-[130px] h-[20px]"
+                        >
+                          <p
+                            id="risky"
+                            class="font-medium w-[45px] h-[16px] text-[12px] text-[#B8B8B8]"
+                          >
+                            37 مورد
+                          </p>
+                          <div class="flex gap-[5px] w-[64] h-[20px]">
+                            <img
+                              class="w-[18px] h-[18px]"
+                              id="icon-risky"
+                              src="../public/svgs/wallet/Bitcoin.png"
+                              alt=""
+                            />
+                            <img
+                              class="w-[18px] h-[18px]"
+                              id="icon-risky"
+                              src="../public/svgs/wallet/Bitcoin.png"
+                              alt=""
+                            />
+                            <img
+                              class="w-[18px] h-[18px]"
+                              id="icon-risky"
+                              src="../public/svgs/wallet/Bitcoin.png"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="flex justify-center text-[#ffff] text-[12px] gap-[3px] w-[150px] h-[16px]"
+                        >
+                          <p>$</p>
+                          <p id="price-risky">342,235.1</p>
+                          <p>-&gt;</p>
+                          <p
+                            id="percentage-risky"
+                            class="text-[#FF5454] font-medium"
+                          >
+                            25%
+                          </p>
+                        </div>
+                        <div>
+                          <h1
+                            dir="rtl"
+                            class="font-medium text-[#B8B8B8] text-[12px] w-[150px] h-[16px]"
+                          >
+                            دارایی های پرریسک
+                          </h1>
+                        </div>
+                      </div>
+                      <div class="w-[450px] h-[20px] flex justify-between">
+                        <div
+                          class="flex gap-[25px] justify-around w-[130px] h-[20px]"
+                        >
+                          <p
+                            id="Moderate-risk"
+                            class="font-medium text-[12px] w-[45px] h-[16px] text-[#B8B8B8]"
+                          >
+                            7 مورد
+                          </p>
+                          <div class="flex gap-[5px] w-[64] h-[20px]">
+                            <img
+                              class="w-[18px] h-[18px]"
+                              id="icon-Moderate"
+                              src="../public/svgs/wallet/Bitcoin.png"
+                              alt=""
+                            />
+                            <img
+                              class="w-[18px] h-[18px]"
+                              id="icon-Moderate"
+                              src="../public/svgs/wallet/Bitcoin.png"
+                              alt=""
+                            />
+                            <img
+                              class="w-[18px] h-[18px]"
+                              id="icon-Moderate"
+                              src="../public/svgs/wallet/Bitcoin.png"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="flex justify-center text-[#ffff] text-[12px] gap-[3px] w-[150px] h-[16px]"
+                        >
+                          <p>$</p>
+                          <p id="price-Moderate">342,235.1</p>
+                          <p>-&gt;</p>
+                          <p
+                            id="percentage-Moderate"
+                            class="text-[#CCA64C] font-medium"
+                          >
+                            25%
+                          </p>
+                        </div>
+                        <div>
+                          <h1
+                            dir="rtl"
+                            class="font-medium text-[#B8B8B8] text-[12px] w-[150px] h-[16px]"
+                          >
+                            دارایی های ریسک متوسط
+                          </h1>
+                        </div>
+                      </div>
+                      <div class="w-[450px] h-[20px] flex justify-between">
+                        <div
+                          class="flex gap-[25px] justify-around w-[130px] h-[20px]"
+                        >
+                          <p
+                            id="low-risk"
+                            class="font-medium text-[12px] w-[50px] h-[16px] text-[#B8B8B8]"
+                          >
+                            110 مورد
+                          </p>
+                          <div class="flex gap-[5px] w-[64] h-[20px]">
+                            <img
+                              class="w-[18px] h-[18px]"
+                              id="icon-low"
+                              src="../public/svgs/wallet/Bitcoin.png"
+                              alt=""
+                            />
+                            <img
+                              class="w-[18px] h-[18px]"
+                              id="icon-low"
+                              src="../public/svgs/wallet/Bitcoin.png"
+                              alt=""
+                            />
+                            <img
+                              class="w-[18px] h-[18px]"
+                              id="icon-low"
+                              src="../public/svgs/wallet/Bitcoin.png"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="flex justify-center text-[#ffff] text-[12px] gap-[3px] w-[150px] h-[16px]"
+                        >
+                          <p>$</p>
+                          <p id="price-low">342,235.1</p>
+                          <p>-&gt;</p>
+                          <p
+                            id="percentage-low"
+                            class="text-[#00FFA3] font-medium"
+                          >
+                            25%
+                          </p>
+                        </div>
+                        <div>
+                          <h1
+                            class="font-medium text-[#B8B8B8] text-[12px] w-[150px] h-[16px]"
+                            dir="rtl"
+                          >
+                            دارایی های کم ریسک
+                          </h1>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-[180px] h-[130px] mt-auto mb-auto">
+                    <div class="grid justify-center">
+                      <img
+                        src="../public/svgs/wallet/Health Wallet Chart.png"
+                        alt=""
+                      />
+                      <h1
+                        id="health-chart-number"
+                        class="flex justify-center text-[24px] font-semibold text-[#ffff] relative bottom-[60px]"
+                      >
+                        48
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div
+                class="w-[310px] h-[72px] rounded-[25px] bg-[#181A24] flex justify-around items-center"
+              >
+                <div class="text-[#E5E5E5] flex gap-[2px]">
+                  <p class="text-[24px]">$</p>
+                  <h1 id="property" class="text-[24px]">38,528.20</h1>
+                  <p
+                    id="percentage-property"
+                    class="text-[#D92E4E] pt-[10px] pl-[10px] text-[12px]"
+                  >
+                    -22%
+                  </p>
+                </div>
+                <img
+                  class="w-[72px] h-[18px]"
+                  src="../public/svgs/wallet/دارایی شما_.png"
+                  alt=""
+                />
+              </div>
+              <div class="w-[160px] h-[160px] grid ml-auto mr-auto mt-[16px]">
+                <canvas
+                  class="w-[160px] h-[160px]"
+                  id="myChart"
+                  width="160"
+                  height="160"
+                  style="
+                    display: block;
+                    box-sizing: border-box;
+                    height: 160px;
+                    width: 160px;
+                  "
+                >
+                </canvas>
+                <div
+                  class="w-[90px] h-[90px] rounded-[100%] bg-[#181A24] relative left-[35px] bottom-[125px] flex justify-center items-center"
+                >
+                  <div>
+                    <h1
+                      id="percentage-lost"
+                      class="text-[#FF5454] text-[16px] font-bold"
+                    >
+                      -22%
+                    </h1>
+
+                    <p
+                      id="mony-lost"
+                      class="text-[#FF5454] text-[10px] font-bold"
+                    >
+                      (-$123)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[1520px] h-[515px] grid bg-[#12141C] rounded-[25px] ml-auto mr-auto mt-[2rem]"
+        >
+          <div class="flex justify-center gap-[62rem] mt-[5rem] h-[36px]">
+            <div class="custom-select" onclick="this.classList.toggle('open')">
+              <h1 class="data-tv">انتخاب شبکه</h1>
+              <div class="custom-options">
+                <div class="relative z-[100]" id="erc-20">ERC-20</div>
+                <div class="relative z-[100]" id="trc-20">TRC-20</div>
+                <div class="relative z-[100]" id="bep-20">BEP-20</div>
+                <div class="relative z-[100]" id="polygon">Polygon</div>
+              </div>
+            </div>
+
+            <div>
+              <img src="../public/svgs/wallet/توکن های موجود.png" alt="" />
+            </div>
+          </div>
+
+          <div class="absolute mt-[10rem] grid justify-self-center">
+            <div
+              id="continer-token"
+              class="justify-center grid grid-cols-4 gap-x-[4rem] gap-[20px]"
+            >
+              <div class="w-[240px] h-[85px] bg-[#181A24] rounded-[10px]">
+                <div class="grid gap-[8px] items-center">
+                  <div class="flex justify-center gap-[15px] pt-[16px]">
+                    <img
+                      src="https://cdn.moralis.io/eth/0x.png"
+                      class="w-[24px] h-[24px]"
+                      alt=""
+                    />
+                    <h1 class="text-[18px] text-[#E5E5E5] font-semibold">
+                      190.30
+                    </h1>
+                    <h1 class="text-[20px] text-[#FFFFFF] font-bold">
+                      $23.12M
+                    </h1>
+                  </div>
+                  <div class="flex gap-[28px] justify-center ml-[16px]">
+                    <h1 class="text-[#A7A6B8] text-[14px] font-medium">ETH</h1>
+                    <div class="flex gap-[2px]">
+                      <h1 class="text-[#E5E5E5] text-[12px] font-medium">
+                        $64,312
+                      </h1>
+                      <h1 class="text-[#30E0A1] text-[10px] mt-auto mb-auto">
+                        1.90%
+                      </h1>
+                      <img src="../public/svgs/wallet/trending-up.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../public/js/wallet/chart.js" type="module"></script>
+    <script src="../public/js/wallet/tokenList.js" type="module"></script>
+    <script src="../public/js/wallet/assets.js" type="module"></script>
+  </body>
+</html>

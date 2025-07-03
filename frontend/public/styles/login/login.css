@@ -1,0 +1,104 @@
+@font-face {
+  font-family: "poppins regular";
+  src: url("../fonts/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "poppins medium";
+  src: url("../fonts/Poppins-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "poppins semiBold";
+  src: url("../fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-size: cover;
+}
+#count-login {
+  position: relative;
+  z-index: 999;
+  top: 80px;
+}
+#header-login {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+#input-login {
+  display: grid;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.email-login {
+  background-color: #181a24;
+  width: 463px;
+  height: 74px;
+  border-radius: 15px;
+}
+.password-login {
+  background-color: #181a24;
+  width: 463px;
+  height: 74px;
+  border-radius: 15px;
+}
+.icon-password {
+  /* display: flex;
+  position: relative;
+  top: 50%;
+  gap: 80%;
+  justify-content: center;*/
+}
+.icon-email {
+  position: absolute;
+  right: 7rem;
+  margin-top: 28px;
+}
+.email-login {
+  padding-left: 75%;
+  /* text-align: center;*/
+  color: #b8b8b8;
+}
+.password-login {
+  padding-left: 75%;
+  /* text-align: center;*/
+  color: #b8b8b8;
+}
+.password-login::-webkit-contacts-auto-fill-button {
+  display: none;
+}
+.password-login {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.btn-login {
+  position: absolute;
+  left: 15%;
+  z-index: 100000;
+  background-color: #0092c9;
+  border-radius: 15px;
+  margin-top: 32px;
+}
+button {
+  font-weight: bold;
+  font-weight: bold;
+}
+
+.password {
+  position: relative;
+  left: 26.2rem;
+  top: 3.5rem;
+  height: 35px;
+  width: 29px;
+}
+.img-hade-password {
+  position: relative;
+  top: 5rem;
+  left: 2rem;
+}
