@@ -79,7 +79,7 @@
 				},
 				"responses": {
 					"200": {
-						"description": "successfully logged in"
+						"description": "A token for otp verification"
 					},
 					"400": {
 						"description": "invalid request body data"
@@ -96,6 +96,29 @@
 						"example": {
 							"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 						}
+					}
+				}
+			}
+		},
+		"/api/auth/verify-otp": {
+			"post": {
+				"tags": ["Auth"],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"example": {
+									"code": "123456",
+									"token": "asdai123bhmbk1j2hKUHkjjh31jhv1312"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "success"
 					}
 				}
 			}
