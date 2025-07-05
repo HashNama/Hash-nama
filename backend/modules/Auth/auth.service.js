@@ -1,15 +1,14 @@
 const UserModel = require("./../../models/User");
+const OtpModel = require("./../../models/Otp");
+const RecoveryModel = require("./../../models/Recovery");
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
 const configs = require("./../../configs");
-const { isValidObjectId } = require("mongoose");
 
-exports.findUserById = async (userId) => {
-	if (!isValidObjectId(userId))
-		throw { status: 400, message: "شناسه کاربر معتبر نیست" };
-
-	const user = await UserModel.findById(userId);
+exports.findUserByEmail = async (email) => {
+	const user = await UserModel.findById(email);
 	if (!user) throw { status: 404, message: "کاربر یافت نشد" };
 
 	return user;
@@ -52,19 +51,17 @@ exports.createUserDocument = async (username, email, password) => {
 	return user;
 };
 
-exports.createAccessToken = (userId) => {
-	const accessToken = jwt.sign(
-		{ userId },
-		configs.auth.accessTokenSecretKey,
-		{ expiresIn: configs.auth.accessTokenExpriesInSeconds }
-	);
+exports.createAccessToken = (email) => {
+	const accessToken = jwt.sign({ email }, configs.auth.accessTokenSecretKey, {
+		expiresIn: configs.auth.accessTokenExpriesInSeconds,
+	});
 
 	return accessToken;
 };
 
-exports.createRefreshToken = (userId) => {
+exports.createRefreshToken = (email) => {
 	const refreshToken = jwt.sign(
-		{ userId },
+		{ email },
 		configs.auth.refreshTokenSecretKey,
 		{ expiresIn: configs.auth.refreshTokenExpriesInSeconds }
 	);
@@ -105,4 +102,68 @@ exports.verifyRefreshToken = async (refreshToken) => {
 		}
 	);
 	return decoded;
+};
+
+exports.createOTP = async (email) => {
+	const token = crypto.randomUUID();
+	const code = Math.floor(Math.random() * (99999 - 10000) + 10000);
+
+	const otp = await OtpModel.create({ email, token, code });
+
+	return otp;
+};
+
+exports.findOtp = async (token) => {
+	const otp = await OtpModel.findOne({ token });
+	return otp;
+};
+
+exports.removeOtp = async (token) => {
+	await OtpModel.findOneAndDelete({ token });
+	return;
+};
+
+exports.increseOtpAttempt = async (token) => {
+	const newOtp = await OtpModel.findOneAndUpdate(
+		{ token },
+		{
+			$inc: { attempts: 1 },
+		},
+		{ new: true }
+	);
+
+	return newOtp;
+};
+
+exports.createRecovery = async (email) => {
+	const token = crypto.randomBytes(32).toString("hex");
+
+	const recovery = await RecoveryModel.create({ email, token });
+
+	return recovery;
+};
+
+exports.findRecovery = async (finder) => {
+	const recovery = await RecoveryModel.findOne({
+		$or: [{ email: finder }, { token: finder }],
+	});
+
+	return recovery;
+};
+
+exports.updateUser = async (filter, newData) => {
+	const updatedUser = await UserModel.findOneAndUpdate(
+		filter,
+		{
+			$set: newData,
+		},
+		{ new: true }
+	);
+
+	return updatedUser;
+};
+
+exports.deleteRecovery = async (token) => {
+	await RecoveryModel.deleteOne({ token });
+	return;
 };
