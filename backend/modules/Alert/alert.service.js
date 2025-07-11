@@ -62,7 +62,6 @@ exports.sendAlertNotification = async () => {
 
 	for (const alert of alerts) {
 		const coin = alert.coinId;
-
 		const currentCoinPrice = coin.price;
 		const target = alert.price;
 		const direction = alert.currentPositionToReachTarget;

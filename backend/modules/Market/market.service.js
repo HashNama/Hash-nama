@@ -3,7 +3,13 @@ const MarketDataModel = require("../../models/MarketData");
 const axios = require("axios");
 
 const normalizeSymbol = (symbol) => symbol.trim().toUpperCase();
-
+let fetchCounter = 0;
+const storeCoinPrice = (coin) => {
+	if (fetchCounter === 240) {
+		return { price: coin.current_price, createdAt: new Date() };
+	}
+	return;
+};
 exports.syncTop100Coins = async () => {
 	try {
 		const { data } = await axios.get(
@@ -17,6 +23,7 @@ exports.syncTop100Coins = async () => {
 				},
 			}
 		);
+		fetchCounter++;
 
 		const updates = data.map((coin) => {
 			const normalizedSymbol = normalizeSymbol(coin.symbol);
@@ -40,6 +47,9 @@ exports.syncTop100Coins = async () => {
 							ath: coin.ath,
 							updatedAt: new Date(),
 						},
+						$push: {
+							historicalPrices: storeCoinPrice(coin),
+						},
 					},
 					upsert: true,
 				},
@@ -51,6 +61,7 @@ exports.syncTop100Coins = async () => {
 		const top100Symbols = data.map((coin) => coin.symbol.toUpperCase());
 		await MarketDataModel.deleteMany({ symbol: { $nin: top100Symbols } });
 
+		fetchCounter = fetchCounter === 240 ? 0 : fetchCounter;
 		return;
 	} catch (err) {
 		console.log(err.message);

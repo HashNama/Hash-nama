@@ -1,6 +1,15 @@
 const mongoose = require("mongoose");
 
-const schema = mongoose.Schema(
+const historiclPriceSchema = mongoose.Schema({
+	price: {
+		type: Number,
+		required: true,
+	},
+	createdAt: {
+		type: Date,
+	},
+});
+const coinSchema = mongoose.Schema(
 	{
 		name: {
 			type: String,
@@ -55,6 +64,10 @@ const schema = mongoose.Schema(
 			required: false,
 			default: null,
 		},
+		historicalPrices: {
+			type: [historiclPriceSchema],
+			default: [],
+		},
 		updatedAt: {
 			type: Date,
 		},
@@ -64,6 +77,6 @@ const schema = mongoose.Schema(
 	}
 );
 
-const model = mongoose.model("MarketData", schema);
+const model = mongoose.model("MarketData", coinSchema);
 
 module.exports = model;
