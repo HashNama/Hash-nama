@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WatchList</title>
     <link rel="stylesheet" href="../public/styles/main.css" />
-    <link rel="stylesheet" href="../public/styles/wallet/wallet.css" />
+    <link rel="stylesheet" href="../public/styles/watchlist/watchlist.css" />
   </head>
   <body class="bg-[#0D0F15]">
     <div class="w-[1890x]">
@@ -100,11 +100,12 @@
           <div class="flex">
             <div>
               <input
-                class="w-[500px] text-[#E5E5E5] shadow-[#1e202b] shadow-sm text-right focus:outline-none h-[36px] bg-[#181A24] rounded-[16px]"
+                id="sarch-input"
+                class="w-[500px] text-center text-[#E5E5E5] shadow-[#1e202b] shadow-sm focus:outline-none h-[36px] bg-[#181A24] rounded-[16px]"
               />
             </div>
-            <div id="sarch-input" class="flex gap-[12px] absolute ml-[25rem]">
-              <p class="text-[#A7A6B8] text-[16px]">...جستجو</p>
+            <div class="flex gap-[12px] absolute ml-[25rem]">
+              <p id="searching" class="text-[#A7A6B8] text-[16px]">...جستجو</p>
               <img
                 class="w-5 h-5 mt-[5px]"
                 src="../public/svgs/wallet/search.png"
@@ -124,7 +125,7 @@
       </div>
     </div>
 
-    <div class="flex gap-[3rem] absolute left-[3rem] mt-[2rem]">
+    <div class="flex gap-[1rem] absolute left-[3rem] mt-[2rem]">
       <div class="bg-[#12141C] w-[380px] h-[885px] rounded-[25px]">
         <div class="flex justify-center mt-[2rem]">
           <h1 class="text-[24px] font-bold text-[#E5E5E5]">هشدار ها</h1>
@@ -132,7 +133,7 @@
 
         <div
           id="container-alarm"
-          class="grid justify-center mt-[3rem] gap-[2rem]"
+          class="grid justify-center mt-[3rem] gap-[12px]"
         >
           <div
             class="bg-[#181A24] w-[348px] h-[70px] rounded-[10px] flex justify-center items-center gap-[2rem]"
@@ -308,262 +309,44 @@
         </div>
         <div
           id="container-list"
-          class="grid justify-center gap-[1rem] mt-[3rem]"
-        >
-          <div
-            class="flex gap-[4.8rem] justify-center items-center border-b-[1px] border-white w-[1076px] h-[78px]"
-          >
-            <ul class="w-[28px] text-center">
-              <h1 class="text-[16px] text-[#E5E5E5] font-medium">1</h1>
-            </ul>
-            <ul class="flex gap-[5px] w-[100px] text-center">
-              <img
-                id="token-list"
-                class="w-[24px] h-[24px]"
-                src="../public/svgs/WatchList/Bitcoin.png"
-                alt=""
-              />
-              <h1
-                id="name-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                Bitcoin
-              </h1>
-            </ul>
-            <ul class="w-[90px]">
-              <h1
-                id="balance-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                $645.454
-              </h1>
-            </ul>
-            <ul class="w-[90px]">
-              <h1
-                id="price-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                $645.454
-              </h1>
-            </ul>
-            <ul style="direction: rtl" class="w-[64px]">
-              <h1 class="text-[#00FFA3] text-[12px] font-medium">6.80%</h1>
-            </ul>
-            <ul style="direction: rtl" class="w-[120px]">
-              <img
-                src="../public/svgs/WatchList/Frame 34408.png"
-                id="chart-list"
-                alt=""
-              />
-            </ul>
-            <ul class="flex gap-[5px] w-[80px]">
-              <button class="w-[30px] h-[30px]">
-                <img
-                  class="w-[50px] h-[30px]"
-                  src="../public/svgs/WatchList/Group 162805.png"
-                  alt=""
-                />
-              </button>
-              <button class="w-[30px] h-[30px]">
-                <img
-                  class="w-[30px] h-[30px]"
-                  src="../public/svgs/WatchList/Button1.png"
-                  alt=""
-                />
-              </button>
-            </ul>
-          </div>
-          <div
-            class="flex gap-[4.8rem] justify-center items-center border-b-[1px] border-white w-[1076px] h-[78px]"
-          >
-            <ul class="w-[28px] text-center">
-              <h1 class="text-[16px] text-[#E5E5E5] font-medium">1</h1>
-            </ul>
-            <ul class="flex gap-[5px] w-[100px] text-center">
-              <img
-                id="token-list"
-                class="w-[24px] h-[24px]"
-                src="../public/svgs/WatchList/Bitcoin.png"
-                alt=""
-              />
-              <h1
-                id="name-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                Bitcoin
-              </h1>
-            </ul>
-            <ul class="w-[90px]">
-              <h1
-                id="balance-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                $645.454
-              </h1>
-            </ul>
-            <ul class="w-[90px]">
-              <h1
-                id="price-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                $645.454
-              </h1>
-            </ul>
-            <ul style="direction: rtl" class="w-[64px]">
-              <h1 class="text-[#00FFA3] text-[12px] font-medium">6.80%</h1>
-            </ul>
-            <ul style="direction: rtl" class="w-[120px]">
-              <img
-                src="../public/svgs/WatchList/Frame 34408.png"
-                id="chart-list"
-                alt=""
-              />
-            </ul>
-            <ul class="flex gap-[5px] w-[80px]">
-              <button class="w-[30px] h-[30px]">
-                <img
-                  class="w-[50px] h-[30px]"
-                  src="../public/svgs/WatchList/Group 162805.png"
-                  alt=""
-                />
-              </button>
-              <button class="w-[30px] h-[30px]">
-                <img
-                  class="w-[30px] h-[30px]"
-                  src="../public/svgs/WatchList/Button1.png"
-                  alt=""
-                />
-              </button>
-            </ul>
-          </div>
-          <div
-            class="flex gap-[4.8rem] justify-center items-center border-b-[1px] border-white w-[1076px] h-[78px]"
-          >
-            <ul class="w-[28px] text-center">
-              <h1 class="text-[16px] text-[#E5E5E5] font-medium">1</h1>
-            </ul>
-            <ul class="flex gap-[5px] w-[100px] text-center">
-              <img
-                id="token-list"
-                class="w-[24px] h-[24px]"
-                src="../public/svgs/WatchList/Bitcoin.png"
-                alt=""
-              />
-              <h1
-                id="name-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                Bitcoin
-              </h1>
-            </ul>
-            <ul class="w-[90px]">
-              <h1
-                id="balance-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                $645.454
-              </h1>
-            </ul>
-            <ul class="w-[90px]">
-              <h1
-                id="price-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                $645.454
-              </h1>
-            </ul>
-            <ul style="direction: rtl" class="w-[64px]">
-              <h1 class="text-[#00FFA3] text-[12px] font-medium">6.80%</h1>
-            </ul>
-            <ul style="direction: rtl" class="w-[120px]">
-              <img
-                src="../public/svgs/WatchList/Frame 34408.png"
-                id="chart-list"
-                alt=""
-              />
-            </ul>
-            <ul class="flex gap-[5px] w-[80px]">
-              <button class="w-[30px] h-[30px]">
-                <img
-                  class="w-[50px] h-[30px]"
-                  src="../public/svgs/WatchList/Group 162805.png"
-                  alt=""
-                />
-              </button>
-              <button class="w-[30px] h-[30px]">
-                <img
-                  class="w-[30px] h-[30px]"
-                  src="../public/svgs/WatchList/Button1.png"
-                  alt=""
-                />
-              </button>
-            </ul>
-          </div>
-          <div
-            class="flex gap-[4.8rem] justify-center items-center border-b-[1px] border-white w-[1076px] h-[78px]"
-          >
-            <ul class="w-[28px] text-center">
-              <h1 class="text-[16px] text-[#E5E5E5] font-medium">1</h1>
-            </ul>
-            <ul class="flex gap-[5px] w-[100px] text-center">
-              <img
-                id="token-list"
-                class="w-[24px] h-[24px]"
-                src="../public/svgs/WatchList/Bitcoin.png"
-                alt=""
-              />
-              <h1
-                id="name-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                Bitcoin
-              </h1>
-            </ul>
-            <ul class="w-[90px]">
-              <h1
-                id="balance-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                $645.454
-              </h1>
-            </ul>
-            <ul class="w-[90px]">
-              <h1
-                id="price-token-list"
-                class="text-[16px] text-[#E5E5E5] font-bold"
-              >
-                $645.454
-              </h1>
-            </ul>
-            <ul style="direction: rtl" class="w-[64px]">
-              <h1 class="text-[#00FFA3] text-[12px] font-medium">6.80%</h1>
-            </ul>
-            <ul style="direction: rtl" class="w-[120px]">
-              <img
-                src="../public/svgs/WatchList/Frame 34408.png"
-                id="chart-list"
-                alt=""
-              />
-            </ul>
-            <ul class="flex gap-[5px] w-[80px]">
-              <button class="w-[30px] h-[30px]">
-                <img
-                  class="w-[50px] h-[30px]"
-                  src="../public/svgs/WatchList/Group 162805.png"
-                  alt=""
-                />
-              </button>
-              <button class="w-[30px] h-[30px]">
-                <img
-                  class="w-[30px] h-[30px]"
-                  src="../public/svgs/WatchList/Button1.png"
-                  alt=""
-                />
-              </button>
-            </ul>
-          </div>
-        </div>
+          class="grid justify-center max-h-[642px] overflow-y-auto gap-[1rem] mt-[3rem]"
+        ></div>
       </div>
     </div>
+
+    <div
+      id="bg-blur"
+      class="h-[1024px] w-[1891px] hidden inset-0 bg-black/30 transition-opacity duration-300 opacity-100 backdrop-blur-sm absolute z-[100] bottom-[0px] top-[0px]"
+    ></div>
+
+    <div
+      id="alert"
+      class="w-[380px] hidden transition-opacity duration-300 opacity-100 h-[250px] shadow-2xl bg-[#0D0F15] rounded-[25px] ml-auto mr-auto relative z-[1000] mt-[12rem]"
+    >
+      <button id="close-alert" class="mt-[18px] ml-[16px]">
+        <img src="../public/svgs/WatchList/close.png" alt="" />
+      </button>
+      <div class="grid justify-center gap-[1rem] mt-[2rem]">
+        <h1 class="text-[18px] text-center font-bold text-[#E5E5E5]">
+          قیمت هشدار
+        </h1>
+        <input
+          class="w-[330px] text-center rounded-[15px] focus:outline-none text-[#B8B8B8] shadow-2xl h-[60px] bg-[#12141C] border-none"
+          type="text"
+          placeholder=" قیمت مورد نظر را وارد کنید"
+          id="input-price-alert"
+        />
+      </div>
+      <h1
+        id="incrroct-value"
+        class="text-red-400 text-[14px] text-center mt-[5px] hidden"
+      >
+        لطفا فیلد را برسی کنید
+      </h1>
+    </div>
+
+    <script src="../public/js/watchlist/watchList.js" type="module"></script>
+    <script src="../public/js/watchlist/alerttoken.js" type="module"></script>
+    <script src="../public/js/watchlist/alert.js" type="module"></script>
   </body>
 </html>

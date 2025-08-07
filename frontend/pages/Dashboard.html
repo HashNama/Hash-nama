@@ -103,8 +103,11 @@
                 class="w-[500px] text-[#E5E5E5] shadow-[#1e202b] shadow-sm text-right focus:outline-none h-[36px] bg-[#181A24] rounded-[16px]"
               />
             </div>
-            <div id="sarch-input" class="flex gap-[12px] absolute ml-[25rem]">
-              <p class="text-[#A7A6B8] text-[16px]">...جستجو</p>
+            <div
+              id="sarch-input"
+              class="flex justify-center gap-[12px] absolute ml-[25rem]"
+            >
+              <h1 class="text-[#A7A6B8] text-[16px]">...جستجو</h1>
               <img
                 class="w-5 h-5 mt-[5px]"
                 src="../public/svgs/wallet/search.png"
@@ -143,7 +146,7 @@
             </div>
             <div class="flex justify-center gap-[36px] mt-[18px]">
               <ul class="w-[180px]">
-                <h1 class="text-[#E5E5E5] text-[28px] font-medium">
+                <h1 id="myvalue" class="text-[#E5E5E5] text-[28px] font-medium">
                   $38,528.20
                 </h1>
               </ul>
@@ -176,27 +179,35 @@
                   بیشترین رشد
                 </h1>
               </div>
-              <div class="flex justify-center gap-[62px] mt-[16px]">
+              <div class="flex justify-center gap-[55px] mt-[16px]">
                 <div class="flex">
                   <img
+                    id="img-max"
                     class="w-[34px] ml-[12px] h-[34px]"
                     src="../public/svgs/Dashboard/BNB.png"
                     alt=""
                   />
-                  <h1
-                    class="text-[22px] w-[60px] text-[#E5E5E5] ml-[10px] font-semibold"
-                  >
-                    BNB
-                  </h1>
-                  <h1
-                    class="text-[#00FFA3] w-[60px] mt-[5px] text-[14px] font-semibold"
-                  >
-                    +$70.34
-                  </h1>
+                  <div class="flex gap-[12px]">
+                    <h1
+                      id="max-token"
+                      class="text-[22px] w-[80px] text-[#E5E5E5] ml-[10px] font-semibold"
+                    >
+                      BNB
+                    </h1>
+                    <h1
+                      id="price-max"
+                      class="text-[#00FFA3] w-[60px] mt-[7px] text-[14px] font-semibold"
+                    >
+                      +$70.34
+                    </h1>
+                  </div>
                 </div>
 
                 <div class="w-[120px] text-center">
-                  <h1 class="font-medium text-[20px] text-[#00FFA3]">
+                  <h1
+                    id="max-Percentage"
+                    class="font-medium text-[20px] text-[#00FFA3]"
+                  >
                     +110.34%
                   </h1>
                 </div>
@@ -205,30 +216,38 @@
             <div class="w-[339px] h-[98px] bg-[#181A24] rounded-[25px]">
               <div style="direction: rtl" class="mt-[12px] mr-[16px]">
                 <h1 class="text-[18px] text-[#E5E5E5] font-semibold">
-                  بیشترین رشد
+                  کمترین رشد
                 </h1>
               </div>
               <div class="flex justify-center gap-[62px] mt-[16px]">
                 <div class="flex">
                   <img
+                    id="img-min"
                     class="w-[34px] ml-[12px] h-[34px]"
                     src="../public/svgs/Dashboard/BNB.png"
                     alt=""
                   />
-                  <h1
-                    class="text-[22px] w-[60px] text-[#E5E5E5] ml-[10px] font-semibold"
-                  >
-                    BNB
-                  </h1>
-                  <h1
-                    class="text-[#00FFA3] w-[60px] mt-[5px] text-[14px] font-semibold"
-                  >
-                    +$70.34
-                  </h1>
+                  <div class="flex gap-[12px]">
+                    <h1
+                      id="min-token"
+                      class="text-[22px] w-[70px] text-[#E5E5E5] ml-[10px] font-semibold"
+                    >
+                      BNB
+                    </h1>
+                    <h1
+                      id="price-min"
+                      class="text-[#D92E4E] w-[60px] mt-[7px] text-[14px] font-semibold"
+                    >
+                      +$70.34
+                    </h1>
+                  </div>
                 </div>
 
                 <div class="w-[120px] text-center">
-                  <h1 class="font-medium text-[20px] text-[#00FFA3]">
+                  <h1
+                    id="min-Percentage"
+                    class="font-medium text-[20px] text-[#00FFA3]"
+                  >
                     +110.34%
                   </h1>
                 </div>
@@ -261,7 +280,7 @@
                     alt=""
                   />
                   <h1
-                    id="daminance-token"
+                    id="daminance-tokeneth"
                     class="w-[100px] text-[#B8B8B8] text-[22px] font-semibold"
                   >
                     %61.1
@@ -269,7 +288,7 @@
                 </div>
                 <div>
                   <h1
-                    id="daminance"
+                    id="daminanceeth"
                     class="w-[80px] text-[#00FFA3] text-[18px] font-medium"
                   >
                     +0.53%
@@ -281,11 +300,11 @@
                   <img
                     id="daminance-img"
                     class="w-[34px] h-[34px]"
-                    src="../public/svgs/Dashboard/BNB.png"
+                    src="https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400"
                     alt=""
                   />
                   <h1
-                    id="daminance-token"
+                    id="daminance-tokenbtc"
                     class="w-[100px] text-[#B8B8B8] text-[22px] font-semibold"
                   >
                     %61.1
@@ -293,7 +312,7 @@
                 </div>
                 <div>
                   <h1
-                    id="daminance"
+                    id="daminancebtc"
                     class="w-[80px] text-[#00FFA3] text-[18px] font-medium"
                   >
                     +0.53%
@@ -307,7 +326,7 @@
               class="text-[18px] pt-[12px] pr-[24px] text-[#E5E5E5] font-semibold"
               style="direction: rtl"
             >
-              شاخص ترس و طمع
+              ترس و طمع
             </h1>
             <div class="flex justify-center gap-[6rem] mt-[14px]">
               <div class="grid">
@@ -317,7 +336,10 @@
                 >
                   38
                 </h1>
-                <h1 class="text-[24px] w-[80px] text-[#D92E4E] font-bold">
+                <h1
+                  id="text-sceard"
+                  class="text-[24px] w-[80px] text-[#D92E4E] font-bold"
+                >
                   ترس
                 </h1>
               </div>
@@ -425,92 +447,10 @@
               </ul>
             </div>
 
-            <div id="container-market">
-              <div
-                class="w-[482px] h-[54px] flex justify-center items-center gap-[60px] ml-auto mr-auto border-b-[1px] border-white"
-              >
-                <ul class="w-[48px] text-center">
-                  <h1
-                    id="number-marketing"
-                    class="text-[16px] font-medium text-[#E5E5E5]"
-                  >
-                    1
-                  </h1>
-                </ul>
-                <ul class="w-[140px] flex gap-[5px]">
-                  <img
-                    class="w-[24px] h-[24px]"
-                    id="img-list"
-                    src="../public/svgs/Dashboard/Bitcoin.png"
-                    alt=""
-                  />
-                  <h1
-                    id="name-list"
-                    class="text-[#E5E5E5] text-[16px] font-medium"
-                  >
-                    Bitcoin
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="price-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#E5E5E5]"
-                  >
-                    $645.454
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="percent-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#00FFA3]"
-                  >
-                    6.80%
-                  </h1>
-                </ul>
-              </div>
-              <div
-                class="w-[482px] h-[54px] flex justify-center items-center gap-[60px] ml-auto mr-auto border-b-[1px] border-white"
-              >
-                <ul class="w-[48px] text-center">
-                  <h1
-                    id="number-marketing"
-                    class="text-[16px] font-medium text-[#E5E5E5]"
-                  >
-                    1
-                  </h1>
-                </ul>
-                <ul class="w-[140px] flex gap-[5px]">
-                  <img
-                    class="w-[24px] h-[24px]"
-                    id="img-list"
-                    src="../public/svgs/Dashboard/Bitcoin.png"
-                    alt=""
-                  />
-                  <h1
-                    id="name-list"
-                    class="text-[#E5E5E5] text-[16px] font-medium"
-                  >
-                    Bitcoin
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="price-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#E5E5E5]"
-                  >
-                    $645.454
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="percent-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#00FFA3]"
-                  >
-                    6.80%
-                  </h1>
-                </ul>
-              </div>
-            </div>
+            <div
+              class="grid justify-center max-h-[400px] overflow-y-auto"
+              id="container-wachtlist"
+            ></div>
           </div>
           <div class="w-[530px] h-[565px] rounded-[25px] bg-[#181A24]">
             <div style="direction: rtl" class="mt-[12px] mr-[16px]">
@@ -551,167 +491,18 @@
               </ul>
             </div>
 
-            <div id="container-market">
-              <div
-                class="w-[482px] h-[54px] flex justify-center items-center gap-[60px] ml-auto mr-auto border-b-[1px] border-white"
-              >
-                <ul class="w-[48px] text-center">
-                  <h1
-                    id="number-marketing"
-                    class="text-[16px] font-medium text-[#E5E5E5]"
-                  >
-                    1
-                  </h1>
-                </ul>
-                <ul class="w-[140px] flex gap-[5px]">
-                  <img
-                    class="w-[24px] h-[24px]"
-                    id="img-markting"
-                    src="../public/svgs/Dashboard/Tether 2.png"
-                    alt=""
-                  />
-                  <h1 class="text-[#E5E5E5] text-[16px] font-medium">
-                    Bitcoin
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="price-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#E5E5E5]"
-                  >
-                    $645.454
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="percent-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#00FFA3]"
-                  >
-                    6.80%
-                  </h1>
-                </ul>
-              </div>
-              <div
-                class="w-[482px] h-[54px] flex justify-center items-center gap-[60px] ml-auto mr-auto border-b-[1px] border-white"
-              >
-                <ul class="w-[48px] text-center">
-                  <h1
-                    id="number-marketing"
-                    class="text-[16px] font-medium text-[#E5E5E5]"
-                  >
-                    1
-                  </h1>
-                </ul>
-                <ul class="w-[140px] flex gap-[5px]">
-                  <img
-                    class="w-[24px] h-[24px]"
-                    id="img-markting"
-                    src="../public/svgs/Dashboard/Tether 2.png"
-                    alt=""
-                  />
-                  <h1 class="text-[#E5E5E5] text-[16px] font-medium">
-                    Bitcoin
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="price-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#E5E5E5]"
-                  >
-                    $645.454
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="percent-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#00FFA3]"
-                  >
-                    6.80%
-                  </h1>
-                </ul>
-              </div>
-              <div
-                class="w-[482px] h-[54px] flex justify-center items-center gap-[60px] ml-auto mr-auto border-b-[1px] border-white"
-              >
-                <ul class="w-[48px] text-center">
-                  <h1
-                    id="number-marketing"
-                    class="text-[16px] font-medium text-[#E5E5E5]"
-                  >
-                    1
-                  </h1>
-                </ul>
-                <ul class="w-[140px] flex gap-[5px]">
-                  <img
-                    class="w-[24px] h-[24px]"
-                    id="img-markting"
-                    src="../public/svgs/Dashboard/Tether 2.png"
-                    alt=""
-                  />
-                  <h1 class="text-[#E5E5E5] text-[16px] font-medium">
-                    Bitcoin
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="price-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#E5E5E5]"
-                  >
-                    $645.454
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="percent-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#00FFA3]"
-                  >
-                    6.80%
-                  </h1>
-                </ul>
-              </div>
-              <div
-                class="w-[482px] h-[54px] flex justify-center items-center gap-[60px] ml-auto mr-auto border-b-[1px] border-white"
-              >
-                <ul class="w-[48px] text-center">
-                  <h1
-                    id="number-marketing"
-                    class="text-[16px] font-medium text-[#E5E5E5]"
-                  >
-                    1
-                  </h1>
-                </ul>
-                <ul class="w-[140px] flex gap-[5px]">
-                  <img
-                    class="w-[24px] h-[24px]"
-                    id="img-markting"
-                    src="../public/svgs/Dashboard/Tether 2.png"
-                    alt=""
-                  />
-                  <h1 class="text-[#E5E5E5] text-[16px] font-medium">
-                    Bitcoin
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="price-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#E5E5E5]"
-                  >
-                    $645.454
-                  </h1>
-                </ul>
-                <ul>
-                  <h1
-                    id="percent-markting"
-                    class="text-[14px] w-[80px] font-medium text-[#00FFA3]"
-                  >
-                    6.80%
-                  </h1>
-                </ul>
-              </div>
-            </div>
+            <div
+              id="container-market"
+              class="grid justify-center max-h-[400px] overflow-y-auto"
+            ></div>
           </div>
         </div>
       </div>
     </div>
+
+    <script
+      src="../public/js/dashboard/dashboardMarket.js"
+      type="module"
+    ></script>
   </body>
 </html>

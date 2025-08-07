@@ -1,0 +1,61 @@
+body {
+  margin: 0px;
+  position: relative;
+}
+
+.custom-select {
+  display: flex;
+  position: relative;
+  width: 140px;
+  background: #181a24;
+  color: #e5e5e5;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  padding: 8px 0;
+  user-select: none;
+}
+
+.custom-options {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background: #181a24;
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.8s ease;
+  transform: translateY(15px);
+  z-index: 10;
+}
+
+.custom-select.open .custom-options {
+  max-height: none;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.custom-options div {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.custom-options div:hover {
+  background: #22242f;
+}
+#message:hover {
+  background: #22242f;
+}
+#receipt:hover {
+  background: #22242f;
+}
+#card:hover {
+  background: #22242f;
+}
+#home:hover {
+  background: #22242f;
+}

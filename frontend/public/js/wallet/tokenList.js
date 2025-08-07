@@ -31,6 +31,9 @@ function assetstoken(res) {
 function basetoken(base) {
   base.forEach((event) => {
     //let usdAmounttoken = `${event.usdAmount}`;
+    //  let numbertoken = usdAmounttoken.substr(1);
+    //let amount = Number(parseFloat(numbertoken).toFixed(4));
+
     let creattoken = document.createElement("div");
     creattoken.setAttribute(
       "class",
@@ -44,7 +47,7 @@ function basetoken(base) {
       alt=""
     />
     <h1 class="text-[18px] text-[#E5E5E5] font-semibold">${event.balance}</h1>
-    <h1 id="balanc" class="text-[20px] text-[#FFFFFF] font-bold"></h1>
+    <h1 id="balanc" class="text-[20px] text-[#FFFFFF] font-bold">${event.usdAmount}</h1>
   </div>
   <div class="flex gap-[26px] ml-[16px]">
     <h1 class="text-[#A7A6B8] text-[14px] font-medium">${event.symbol}</h1>
@@ -64,10 +67,7 @@ function basetoken(base) {
     let numbertoken = usdAmounttoken.substr(1);
     return Number(parseFloat(numbertoken).toFixed(4));
   });
-  /* result.forEach((num) => {
-    amount.innerHTML = num;
-    console.log(amount);
-  });*/
+  console.log(result);
 }
 function bsctoken(bsc) {
   console.log(bsc);

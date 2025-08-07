@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>market</title>
     <link rel="stylesheet" href="../public/styles/main.css" />
-    <link rel="stylesheet" href="../public/styles/wallet/wallet.css" />
+    <link rel="stylesheet" href="../public/styles/market/market.css" />
   </head>
   <body class="bg-[#0D0F15]">
     <div class="w-[1890x]">
@@ -94,17 +94,24 @@
           class="bg-[#12141C] relative right-[138px] w-[1520px] h-[64px] flex gap-[13rem] mt-[32px] rounded-[20px] justify-around items-center"
         >
           <div>
-            <span><img src="../public/svgs/wallet/notifications.png" /></span>
+            <span
+              ><img
+                id="notifications-img"
+                src="../public/svgs/wallet/notifications.png"
+            /></span>
           </div>
 
           <div class="flex">
             <div>
               <input
-                class="w-[500px] text-[#E5E5E5] shadow-[#1e202b] shadow-sm text-right focus:outline-none h-[36px] bg-[#181A24] rounded-[16px]"
+                id="search-input"
+                class="w-[500px] text-center text-[#A7A6B8] text-[16px] font-medium shadow-[#1e202b] shadow-sm focus:outline-none h-[36px] bg-[#181A24] rounded-[16px]"
               />
             </div>
             <div id="sarch-input" class="flex gap-[12px] absolute ml-[25rem]">
-              <p class="text-[#A7A6B8] text-[16px]">...جستجو</p>
+              <p id="searching" class="text-[#A7A6B8] text-[16px] font-medium">
+                ...جستجو
+              </p>
               <img
                 class="w-5 h-5 mt-[5px]"
                 src="../public/svgs/wallet/search.png"
@@ -115,6 +122,7 @@
 
           <div>
             <button
+              id="btn-speack"
               class="w-[130px] h-[36px] bg-[#0092C9] text-[#E5E5E5] rounded-[10px] text-[16px] font-semibold"
             >
               گفتگو
@@ -137,7 +145,7 @@
       </div>
 
       <div
-        class="w-[1462px] h-[58px] bg-[#181A24] rounded-[10px] mt-[20px] ml-auto mr-auto flex justify-center items-center gap-[6.8rem]"
+        class="w-[1462px] h-[58px] bg-[#181A24] rounded-[10px] mt-[20px] ml-auto mr-auto flex justify-center items-center gap-[6.6rem]"
       >
         <ul>
           <p class="text-[12px] text-[#B8B8B8] font-medium">#</p>
@@ -202,213 +210,49 @@
         </ul>
       </div>
 
-      <div class="w-[1462px] h-[572px] mt-[20px] ml-auto mr-auto">
-        <div
-          class="w-[1429px] h-[78px] flex gap-[4.5rem] items-center justify-center ml-auto mr-auto border-b-[1px] border-white mt-[20px]"
-        >
-          <ul class="w-[28px] text-center">
-            <p id="number-currency" class="text-[16px] text-[#E5E5E5]">1</p>
-          </ul>
-          <ul class="flex gap-[3px] w-[100px] text-center">
-            <img
-              class="w-[24px] h-[24px]"
-              id="img-currency"
-              src="../public/svgs/market/Bitcoin.png"
-              alt=""
-            />
-            <h1
-              id="name-currency"
-              class="text-[#E5E5E5] w-[80px] font-medium text-center text-[16px]"
-            >
-              Bitcoin
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px]">
-            <h1
-              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
-              id="price-currency"
-            >
-              $645.454
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px]">
-            <h1
-              id="difrent-currency"
-              class="text-[#00FFA3] w-[100px] text-[12px]"
-            >
-              6.80%
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px]">
-            <h1
-              id="cap-currency"
-              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
-            >
-              $645T
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px]">
-            <h1
-              id="value-currency"
-              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
-            >
-              $697B
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px] text-center">
-            <h1
-              id="type-currency"
-              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
-            >
-              19.2M BTC
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px] text-center">
-            <img
-              class="w-[80px] h-[24px]"
-              src="../public/svgs/market/Frame 34408.png"
-              alt=""
-            />
-          </ul>
-          <ul class="w-[100px] h-[25px] text-center flex justify-center">
-            <img
-              class="h-[30px] w-[80px]"
-              src="../public/svgs/market/Frame 34336.png"
-              alt=""
-            />
-          </ul>
-        </div>
-        <div
-          class="w-[1429px] h-[78px] flex gap-[4.5rem] items-center justify-center ml-auto mr-auto border-b-[1px] border-white mt-[20px]"
-        >
-          <ul class="w-[28px] text-center">
-            <p id="number-currency" class="text-[16px] text-[#E5E5E5]">1</p>
-          </ul>
-          <ul class="flex gap-[3px] w-[100px] text-center">
-            <img
-              class="w-[24px] h-[24px]"
-              id="img-currency"
-              src="../public/svgs/market/Bitcoin.png"
-              alt=""
-            />
-            <h1
-              id="name-currency"
-              class="text-[#E5E5E5] w-[80px] font-medium text-center text-[16px]"
-            >
-              Bitcoin
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px]">
-            <h1
-              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
-              id="price-currency"
-            >
-              $645.454
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px]">
-            <h1
-              id="difrent-currency"
-              class="text-[#00FFA3] w-[100px] text-[12px]"
-            >
-              6.80%
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px]">
-            <h1
-              id="cap-currency"
-              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
-            >
-              $645T
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px]">
-            <h1
-              id="value-currency"
-              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
-            >
-              $697B
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px] text-center">
-            <h1
-              id="type-currency"
-              class="text-[#E5E5E5] w-[100px] text-[14px] font-medium"
-            >
-              19.2M BTC
-            </h1>
-          </ul>
-          <ul class="w-[100px] h-[25px] text-center">
-            <img
-              class="w-[80px] h-[24px]"
-              src="../public/svgs/market/Frame 34408.png"
-              alt=""
-            />
-          </ul>
-          <ul class="w-[100px] h-[25px] text-center flex justify-center">
-            <img
-              class="h-[30px] w-[80px]"
-              src="../public/svgs/market/Frame 34336.png"
-              alt=""
-            />
-          </ul>
-        </div>
-      </div>
+      <div
+        id="container-market"
+        class="w-[1462px] h-[572px] mt-[20px] ml-auto mr-auto"
+      ></div>
 
-      <div class="flex justify-center gap-[59rem] mt-[2rem]">
+      <div class="flex justify-center gap-[43rem] mt-[5rem]">
         <div class="flex gap-[2rem]">
-          <button id="left-png">
+          <button id="btn-prev">
             <img src="../public/svgs/market/Prev.png" alt="" />
           </button>
-          <div class="flex">
-            <ul class="w-[32px] h-[32px] bg-[#4667FB] rounded-[10px]">
-              <p
-                id="number-page"
-                class="text-[12px] mt-[5px] text-[#ffffff] font-medium flex justify-center items-center"
-              >
-                1
-              </p>
-            </ul>
-            <ul class="w-[32px] h-[32px] rounded-[10px]">
-              <p
-                id="number-page"
-                class="text-[12px] mt-[5px] text-[#ffffff] font-medium flex justify-center items-center"
-              >
-                2
-              </p>
-            </ul>
-            <ul class="w-[32px] h-[32px] rounded-[10px]">
-              <p
-                id="number-page"
-                class="text-[12px] mt-[5px] text-[#ffffff] font-medium flex justify-center items-center"
-              >
-                10
-              </p>
-            </ul>
-          </div>
-          <button id="next-png">
+          <div class="flex gap-[5px]" id="pagination"></div>
+          <button id="btn-next">
             <img src="../public/svgs/market/Next.png" alt="" />
           </button>
         </div>
-        <div class="flex gap-[12px]">
-          <h1 class="text-[#687588] mt-[5px] text-[14px] font-medium">
-            نمایش 1 تا 10 ارز بین 200 ارز
-          </h1>
-          <button
-            id="all-page"
-            class="w-[90px] h-[32px] border-1 border-[#323B49] rounded-[8px] flex gap-[3px] justify-center"
-          >
-            <p class="text-[#FFFFFF] mt-[4px] text-[14px] font-medium">
-              نمایش 10
-            </p>
-            <img
-              src="../public/svgs/market/chevron-up.png"
-              class="w-[16px] h-[16px] mt-[7px]"
-              alt=""
-            />
-          </button>
+        <div class="flex gap-[16px]">
+          <div class="text-center flex items-center">
+            <h1 class="text-[#687588] text-[12px] font-medium">
+              نمایش 1 تا 10 ارز بین 100 ارز
+            </h1>
+          </div>
+          <div class="custom-select" onclick="this.classList.toggle('open')">
+            <h1 id="selected-option" class="ml-auto mr-auto">تا 10</h1>
+
+            <div class="custom-options">
+              <div class="relative z-[100]" id="erc-20">1</div>
+              <div class="relative z-[100]" id="erc-20">2</div>
+              <div class="relative z-[100]" id="erc-20">3</div>
+              <div class="relative z-[100]" id="erc-20">4</div>
+              <div class="relative z-[100]" id="erc-20">5</div>
+              <div class="relative z-[100]" id="erc-20">6</div>
+              <div class="relative z-[100]" id="erc-20">7</div>
+              <div class="relative z-[100]" id="trc-20">8</div>
+              <div class="relative z-[100]" id="bep-20">9</div>
+              <div class="relative z-[100]" id="polygon">10</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <script src="../public/js/market/market.js" type="module"></script>
+    <script src="../public/js/market/aitems.js" type="module"></script>
+    <script src="../public/js/market/addtoken.js" type="module"></script>
   </body>
 </html>
