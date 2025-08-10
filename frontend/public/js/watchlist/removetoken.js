@@ -1,19 +1,20 @@
 let access = localStorage.getItem("token");
 
 setTimeout(() => {
-  let add = document.querySelectorAll("#token-add");
+  let removee = document.querySelectorAll("#token-remove");
 
-  add.forEach((event) => {
+  removee.forEach((event) => {
     event.addEventListener("click", () => {
       let currentId = event.children[0].innerHTML;
 
       remove(currentId);
+      console.log(currentId);
     });
   });
 }, 1500);
 
 function remove(currency) {
-  fetch(`http://localhost:4000/api/watchlist/:${currency}`, {
+  fetch(`http://localhost:4000/api/watchlist/${currency}`, {
     method: "DELETE",
     headers: {
       authorization: `Bearer ${access}`,
@@ -24,6 +25,6 @@ function remove(currency) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
     });
 }

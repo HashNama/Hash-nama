@@ -37,6 +37,7 @@ function childrencontainer(res) {
       "class",
       "flex gap-[4.8rem] justify-center items-center border-b-[1px] border-white w-[1076px] h-[78px]"
     );
+
     parentlist.innerHTML = `
     
              <ul class="w-[28px] text-center">
@@ -70,16 +71,17 @@ function childrencontainer(res) {
             </ul>
             <ul class="flex gap-[5px] w-[80px]">
               <button class="w-[30px] h-[30px]" id="token-add">
-                <p class="hidden" id="id-token">${element._id}</p> 
+                <p class="hidden" id="id-token">${element.coin._id}</p> 
                <img class="w-[50px] h-[30px]" src="../public/svgs/WatchList/Group 162805.png" alt="">
               </button>
               <button class="w-[30px] h-[30px]" id="token-remove">
-               <p class="hidden" id="id-token">${element._id}</p>   
+               <p class="hidden" id="id-token">${element.coin._id}</p>   
               <img class="w-[30px] h-[30px]" src="../public/svgs/WatchList/Button1.png" alt="">
               </button>
             </ul>
     
     `;
+
     containerlist.append(parentlist);
   });
 }

@@ -34,15 +34,12 @@ bgblur.addEventListener("click", () => {
 });
 
 let access = localStorage.getItem("token");
-
 function tokenalert(idadd, valuealert, element) {
   if (/^\d+(\.\d+)?$/.test(valuealert) && element.keyCode === 13) {
     alertbox.classList.add("hidden");
     bgblur.classList.add("hidden");
     incrroctvalue.classList.add("hidden");
     inputpricealert.value = "";
-
-    console.log(valuealert, idadd);
 
     fetch(`http://localhost:4000/api/alert`, {
       method: "POST",
@@ -58,8 +55,6 @@ function tokenalert(idadd, valuealert, element) {
       .then((res) => {
         return res.json();
       })
-      .then((res) => {
-        console.log(res);
-      });
+      .then((res) => {});
   }
 }
