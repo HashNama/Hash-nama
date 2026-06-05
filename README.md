@@ -1,71 +1,96 @@
-# 🌟 HashNama - Cryptocurrency Platform 🚀
-**HashNama** یک پلتفرم مدیریت دارایی‌های کریپتویی است که به کاربران این امکان را می‌دهد تا به راحتی کیف پول‌های دیجیتال خود را مدیریت کنند، قیمت لحظه‌ای ارزهای دیجیتال را مشاهده کنند، و از قابلیت‌های مفید دیگری مانند **چت عمومی و خصوصی**، **واچ‌لیست** و **هشدار قیمت** بهره‌مند شوند.
+# HashNama - Cryptocurrency Asset Management Platform
+
+**HashNama** is a cryptocurrency asset management platform that allows users to efficiently manage their digital wallets, track real-time crypto prices, and take advantage of advanced features such as **public and private chats**, **watchlists**, and **price alerts**.
+
+---
 
 ![Screenshot 2025-02-20 234137](https://github.com/user-attachments/assets/3a65c90b-6822-40c6-b419-d7cf6c47b376)
 ![Screenshot 2025-02-20 234053](https://github.com/user-attachments/assets/c2d8267b-4280-4a96-86e0-52f88ca0cb88)
 
-## 🎯 قابلیت ها
+---
 
-### 1. **💼 مدیریت کیف پول**
-- کاربران می‌توانند کیف پول خود را با **آدرس عمومی** یا از طریق اتصال به **MetaMask** وارد کنند.  
-- نمایش **موجودی کیف پول** برای کاربران و انالیز دیتا ها و تعیین نمره سلامت ولت .  
-- محاسبه **سود و زیان** کاربران بر اساس تغییرات قیمت ارزها.
+## Features
 
-### 2. **💬 چت عمومی و خصوصی**
-- کاربران می‌توانند در **چت عمومی** با سایر کاربران صحبت کنند.  
-- ایجاد **چت خصوصی** با دوستان، با امکان ارسال کد روم خصوصی.  
+### 1. Wallet Management
 
-### 3. **📈 مارکت و واچ‌لیست**
-- نمایش **قیمت لحظه‌ای ارزها**، **مارکت کپ** و **عرضه در گردش** و...  
-- اضافه کردن ارز های به **واچ‌لیست** اضافه کنند.  
-- تنظیم **هشدار قیمت** تا کاربر از تغییرات قیمت مطلع شود.
+* Users can register wallets using a **public address** or via **MetaMask** integration.
+* View **wallet balance** and analyze data to determine wallet health scores.
+* Calculate **profit and loss** based on cryptocurrency price changes.
 
-## 📚 پروژه فنی
+### 2. Public and Private Chats
 
-- **فرانت‌اند:** ساخته شده با استفاده از **Vanilla JS** .
-- **بک‌اند:** توسعه با استفاده از **Node.js** و **Express.js**.
-- **پایگاه داده:** استفاده از **MongoDB**.
+* Engage with other users through a **public chat**.
+* Create **private chats** with friends using a unique room code.
 
-## 🛠 راه‌اندازی پروژه
+### 3. Market Tracking and Watchlists
 
-### مراحل نصب
+* View **real-time cryptocurrency prices**, **market capitalization**, **circulating supply**, and more.
+* Add cryptocurrencies to a personalized **watchlist**.
+* Set **price alerts** to receive notifications about significant changes.
 
-1. ابتدا مخزن را کلون کنید:
-   ```bash
-   git clone https://github.com/HashNama/Hash-nama.git
-   ```
-  
-2. وارد دایرکتوری پروژه شوید:
+---
 
-    ```bash
-    cd Hash-nama
-    ```
-3. برای نصب دپندنسی ها:
+## Technical Stack
 
-    ```bash
-    npm i
-    ```
-4. فایل .env را درروت پروژه ایجاد کنید و اطلاعات زیر را وارد کنید:
+* **Frontend:** Vanilla JavaScript
+* **Backend:** Node.js and Express.js
+* **Database:** MongoDB
 
-    ```.env
-    PORT
-    
-    DB_URI
-    
-    ACCESS_TOKEN_SECRET_KEY
-    REFRESH_TOKEN_SECRET_KEY
-    ACCESS_TOKEN_EXPIRES_IN_SECONDS
-    REFRESH_TOKEN_EXPIRES_IN_SECONDS
-    
-    MORALIS_API_KEY
-   
-    EMAIL_USERNAME
-    EMAIL_PASSWORD  
-     
-    DOMAIN
-    NODE_ENV
-    ```
-5. و در نهایت دستور زیر را اجرا کنید :
-     ```bash
-     npm start
-     ```
+---
+
+## Project Setup
+
+### Installation Steps
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/HashNama/Hash-nama.git
+```
+
+2. Navigate into the project directory:
+
+```bash
+cd Hash-nama
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Create a `.env` file in the project root and configure the following environment variables:
+
+```bash
+PORT
+
+DB_URI
+
+ACCESS_TOKEN_SECRET_KEY
+REFRESH_TOKEN_SECRET_KEY
+ACCESS_TOKEN_EXPIRES_IN_SECONDS
+REFRESH_TOKEN_EXPIRES_IN_SECONDS
+
+MORALIS_API_KEY
+
+EMAIL_USERNAME
+EMAIL_PASSWORD
+
+DOMAIN
+NODE_ENV
+```
+
+5. Start the application:
+
+```bash
+npm start
+```
+
+---
+
+## Notes
+
+* The backend is fully implemented; the frontend is partially developed and planned for future updates.
+* Images in this README are preserved and reflect the current UI status.
+* MongoDB connection, authentication tokens, and Moralis API key must be configured correctly for full functionality.
