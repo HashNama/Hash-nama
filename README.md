@@ -79,16 +79,6 @@
 
 ---
 
-## About for GitHub
-
-**Short Description:**
-Node.js & Express backend for HashNama cryptocurrency platform, with MongoDB integration and wallet balance tracking functionality.
-
-**Topics (tags) for GitHub repo:**
-`nodejs`, `express`, `typescript`, `mongodb`, `backend`, `api`, `crypto`, `wallets`, `developer-tools`, `asset-management`
-
----
-
 ## README Notes
 
 * Focuses on backend functionality.
